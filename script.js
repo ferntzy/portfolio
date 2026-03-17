@@ -12,8 +12,8 @@
         });
 
         // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! This is a demo form. In production, this would send your message.');
-            this.reset();
-        });
+        // document.querySelector('form').addEventListener('submit', function(e) {
+        //     e.preventDefault();
+        //     alert('Thank you for your message! This is a demo form. In production, this would send your message.');
+        //     this.reset();
+        // });

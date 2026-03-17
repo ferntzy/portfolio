@@ -1,369 +1,1224 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - IT Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <title>Rovic Kristian - IT Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ── Hero Section ── */
+      section#home.hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .hero-wrap {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0a0d1a;
+        padding: 6rem 2rem 4rem;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-wrap::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 55% 60% at 70% 50%,
+          rgba(99, 102, 241, 0.13) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5rem;
+        max-width: 1000px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      /* ── Text side ── */
+      .hero-text {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .hero-text h1 {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(2.8rem, 5.5vw, 4rem);
+        font-weight: 800;
+        color: #f0f0f8;
+        margin: 0 0 0.5rem;
+        line-height: 1.05;
+      }
+
+      .grad {
+        background: linear-gradient(120deg, #818cf8, #a78bfa, #60a5fa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-subtitle {
+        font-family: "DM Sans", sans-serif;
+        font-size: clamp(0.78rem, 1.4vw, 0.95rem);
+        font-weight: 500;
+        color: #818cf8;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin: 0 0 1.2rem;
+      }
+
+      .hero-desc {
+        font-family: "DM Sans", sans-serif;
+        font-size: clamp(0.88rem, 1.5vw, 1rem);
+        color: #8b8fae;
+        line-height: 1.75;
+        margin: 0 0 2rem;
+        max-width: 400px;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .hero-btn {
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 0.7rem 1.6rem;
+        border-radius: 8px;
+        text-decoration: none;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+        cursor: pointer;
+        display: inline-block;
+      }
+
+      .hero-btn-primary {
+        background: #6366f1;
+        color: #fff;
+        border: none;
+      }
+
+      .hero-btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px rgba(99, 102, 241, 0.45);
+      }
+
+      .hero-btn-secondary {
+        background: transparent;
+        color: #a5b4fc;
+        border: 1.5px solid rgba(165, 180, 252, 0.35);
+      }
+
+      .hero-btn-secondary:hover {
+        border-color: rgba(165, 180, 252, 0.7);
+        color: #c7d2fe;
+      }
+
+      /* ── Orbit scene ── */
+      .orbit-scene {
+        position: relative;
+        width: 420px;
+        height: 420px;
+        flex-shrink: 0;
+      }
+
+      .orbit-canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      /* ── Profile images with hover effect ── */
+      .profile-wrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        z-index: 10;
+        cursor: pointer;
+      }
+
+      .profile-wrap .profile-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(99, 102, 241, 0.5);
+        display: block;
+        transition:
+          opacity 0.35s ease,
+          transform 0.35s ease,
+          border-color 0.35s ease,
+          box-shadow 0.35s ease;
+      }
+
+      .profile-wrap .default-img {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .profile-wrap .hover-img {
+        opacity: 0;
+        transform: scale(1.05);
+      }
+
+      .profile-wrap:hover .default-img {
+        opacity: 0;
+        transform: scale(1.05);
+      }
+
+      .profile-wrap:hover .hover-img {
+        opacity: 1;
+        transform: scale(1);
+        border-color: rgba(99, 102, 241, 0.9);
+        box-shadow: 0 0 28px rgba(99, 102, 241, 0.5);
+      }
+
+      /* ── RESPONSIVE ── */
+
+      /* Tablet: stack vertically, orbit on top */
+      @media (max-width: 820px) {
+        .hero-inner {
+          flex-direction: column-reverse;
+          gap: 2.5rem;
+          text-align: center;
+          padding: 0;
+        }
+
+        .hero-text {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-desc {
+          max-width: 480px;
+        }
+
+        .orbit-scene {
+          width: 360px;
+          height: 360px;
+        }
+
+        .profile-wrap,
+        .profile-wrap .profile-image {
+          width: 120px;
+          height: 120px;
+        }
+      }
+
+      /* Mobile: smaller orbit, tighter text */
+      @media (max-width: 520px) {
+        .hero-wrap {
+          padding: 5rem 1.2rem 3rem;
+        }
+
+        .hero-inner {
+          gap: 1.8rem;
+        }
+
+        .orbit-scene {
+          width: 290px;
+          height: 290px;
+        }
+
+        .profile-wrap,
+        .profile-wrap .profile-image {
+          width: 100px;
+          height: 100px;
+        }
+
+        .hero-text h1 {
+          font-size: 2.4rem;
+        }
+
+        .hero-btns {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .orbit-scene {
+          width: 250px;
+          height: 250px;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <div class="bg-animation"></div>
 
     <nav>
-        <div class="container">
-            <div class="logo">&lt;YourName/&gt;</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#github">GitHub</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+      <div class="container">
+        <div class="logo">&lt;Rovic Kristian C. Laniog&gt;</div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#github">GitHub</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experiences">Experiences</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </nav>
 
     <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Hi, I'm <span class="gradient-text">Your Name</span></h1>
-                    <p class="subtitle">Full-Stack Developer & IT Specialist</p>
-                    <p>I build innovative solutions and contribute to open-source projects. Passionate about clean code, cutting-edge technologies, and creating impactful applications.</p>
-                    <div class="cta-buttons">
-                        <a href="#projects" class="btn btn-primary">View My Work</a>
-                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="profile-container">
-                        <div class="profile-bg"></div>
-                        <img src="https://via.placeholder.com/400x400/1a1f3a/00d9ff?text=Your+Photo" alt="Your Name" class="profile-image">
-                    </div>
-                </div>
+      <div class="hero-wrap">
+        <div class="hero-inner">
+          <div class="hero-text">
+            <h1>Hi, I'm <span class="grad">Rovic</span></h1>
+            <p class="hero-subtitle">
+              Full-Stack Developer, IT Specialist, Content Creator &amp; Organizer
+            </p>
+            <p class="hero-desc">
+              I build innovative solutions and contribute to open-source
+              projects. Passionate about clean code, modern technologies, and
+              crafting impactful applications—while also creating engaging
+              digital content, live streaming and organizing events 
+            </p>
+            <div class="hero-btns">
+              <a href="#projects" class="hero-btn hero-btn-primary"
+                >View My Work</a
+              >
+              <a href="#contact" class="hero-btn hero-btn-secondary"
+                >Get In Touch</a
+              >
             </div>
+          </div>
+
+          <div class="orbit-scene" id="scene">
+            <canvas class="orbit-canvas" id="orbitCanvas"></canvas>
+            <div class="profile-wrap">
+              <img
+                src="images/rovic.jpg"
+                alt="Rovic"
+                class="profile-image default-img"
+              />
+              <img
+                src="images/rovic-hover.png"
+                alt="Rovic hover"
+                class="profile-image hover-img"
+              />
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2><span class="gradient-text">Featured</span> Projects</h2>
-                <p>A selection of my recent work showcasing various technologies and solutions</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/400x200/1a1f3a/00d9ff?text=Project+1" alt="Project 1" class="project-image">
-                    <h3>E-Commerce Platform</h3>
-                    <p>A full-stack e-commerce solution with payment integration, user authentication, and admin dashboard.</p>
-                    <div class="project-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">MongoDB</span>
-                        <span class="tag">Stripe</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">🔗 Live Demo</a>
-                        <a href="#" class="project-link">💻 Source Code</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/400x200/1a1f3a/7c3aed?text=Project+2" alt="Project 2" class="project-image">
-                    <h3>Task Management App</h3>
-                    <p>Real-time collaborative task management system with drag-and-drop functionality and team features.</p>
-                    <div class="project-tags">
-                        <span class="tag">Vue.js</span>
-                        <span class="tag">Firebase</span>
-                        <span class="tag">Tailwind</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">🔗 Live Demo</a>
-                        <a href="#" class="project-link">💻 Source Code</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/400x200/1a1f3a/00d9ff?text=Project+3" alt="Project 3" class="project-image">
-                    <h3>AI Chat Application</h3>
-                    <p>Intelligent chatbot with natural language processing capabilities and multi-language support.</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">FastAPI</span>
-                        <span class="tag">OpenAI</span>
-                        <span class="tag">React</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">🔗 Live Demo</a>
-                        <a href="#" class="project-link">💻 Source Code</a>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2><span class="gradient-text">Featured</span> Projects</h2>
+          <p>
+            A selection of my recent work showcasing various technologies and
+            solutions
+          </p>
         </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="images/semis.png" alt="Project 1" class="project-image" />
+            <h3>Student Event Management Information System (SEMIS)</h3>
+            <p>
+              powerful, full-featured web application built with Laravel 11 and
+              Materio Bootstrap Admin Template. It provides a complete solution
+              for managing student organization events, handling multi-level
+              approval workflows, venue bookings, and real-time calendar
+              visualization.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Blade</span><span class="tag">PHP</span>
+              <span class="tag">JavaScript</span><span class="tag">Hack</span>
+              <span class="tag">MySQL</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/ferntzy/SLSU-SDSO-CAPSTONE-SYSTEM"
+                class="project-link"
+                >💻 Source Code</a
+              >
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img src="images/calcu.png" alt="Project 2" class="project-image" />
+            <h3>Confession Calculator</h3>
+            <p>
+              This is a lighthearted side project I built to inject a little
+              humor into the most mundane tool on your phone. It's a fully
+              functional calculator with a massive personality quirk: it cares
+              more about your feelings than your math.
+            </p>
+            <div class="project-tags"><span class="tag">HTML</span></div>
+            <div class="project-links">
+              <a
+                href="https://ferntzy.github.io/calculator/"
+                class="project-link"
+                >🔗 Live Demo</a
+              >
+              <a
+                href="https://github.com/ferntzy/calculator"
+                class="project-link"
+                >💻 Source Code</a
+              >
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="images/ai.png"
+              alt="Project 3"
+              class="project-image"
+            />
+            <h3>AI Chat Application</h3>
+            <p>
+              Intelligent chatbot with natural language processing capabilities
+              and multi-language support.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span><span class="tag">FastAPI</span>
+              <span class="tag">OpenAI</span><span class="tag">React</span>
+            </div>
+            <div class="project-links">
+             
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="github">
-        <div class="container">
-            <div class="section-header">
-                <h2><span class="gradient-text">GitHub</span> Contributions</h2>
-                <p>My open-source work and repository highlights</p>
-            </div>
-            
-            <div class="github-stats">
-                <div class="stat-card">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Repositories</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">1.2K+</span>
-                    <span class="stat-label">Contributions</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">200+</span>
-                    <span class="stat-label">Stars</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">15+</span>
-                    <span class="stat-label">Followers</span>
-                </div>
-            </div>
-
-            <div class="repos-grid">
-                <div class="repo-card">
-                    <div class="repo-header">
-                        <svg class="repo-icon" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5z"/>
-                        </svg>
-                        <h3>awesome-web-components</h3>
-                    </div>
-                    <p>A collection of reusable React components with TypeScript support and comprehensive documentation.</p>
-                    <div class="repo-stats">
-                        <span class="repo-stat">⭐ 45</span>
-                        <span class="repo-stat">🔀 12</span>
-                        <span class="repo-stat">🟦 TypeScript</span>
-                    </div>
-                </div>
-
-                <div class="repo-card">
-                    <div class="repo-header">
-                        <svg class="repo-icon" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5z"/>
-                        </svg>
-                        <h3>api-automation-toolkit</h3>
-                    </div>
-                    <p>Automated testing framework for REST APIs with built-in assertions and reporting capabilities.</p>
-                    <div class="repo-stats">
-                        <span class="repo-stat">⭐ 28</span>
-                        <span class="repo-stat">🔀 7</span>
-                        <span class="repo-stat">🟨 JavaScript</span>
-                    </div>
-                </div>
-
-                <div class="repo-card">
-                    <div class="repo-header">
-                        <svg class="repo-icon" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5z"/>
-                        </svg>
-                        <h3>data-viz-dashboard</h3>
-                    </div>
-                    <p>Interactive data visualization dashboard using D3.js with real-time data updates and filters.</p>
-                    <div class="repo-stats">
-                        <span class="repo-stat">⭐ 63</span>
-                        <span class="repo-stat">🔀 19</span>
-                        <span class="repo-stat">🟨 JavaScript</span>
-                    </div>
-                </div>
-
-                <div class="repo-card">
-                    <div class="repo-header">
-                        <svg class="repo-icon" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5z"/>
-                        </svg>
-                        <h3>ml-model-deployment</h3>
-                    </div>
-                    <p>Machine learning model deployment pipeline with Docker containerization and CI/CD integration.</p>
-                    <div class="repo-stats">
-                        <span class="repo-stat">⭐ 34</span>
-                        <span class="repo-stat">🔀 8</span>
-                        <span class="repo-stat">🟦 Python</span>
-                    </div>
-                </div>
-
-                <div class="repo-card">
-                    <div class="repo-header">
-                        <svg class="repo-icon" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5z"/>
-                        </svg>
-                        <h3>devops-scripts</h3>
-                    </div>
-                    <p>Collection of DevOps automation scripts for cloud deployment, monitoring, and infrastructure management.</p>
-                    <div class="repo-stats">
-                        <span class="repo-stat">⭐ 52</span>
-                        <span class="repo-stat">🔀 14</span>
-                        <span class="repo-stat">🟧 Shell</span>
-                    </div>
-                </div>
-
-                <div class="repo-card">
-                    <div class="repo-header">
-                        <svg class="repo-icon" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5z"/>
-                        </svg>
-                        <h3>microservices-architecture</h3>
-                    </div>
-                    <p>Scalable microservices architecture demo with service discovery, API gateway, and event-driven design.</p>
-                    <div class="repo-stats">
-                        <span class="repo-stat">⭐ 71</span>
-                        <span class="repo-stat">🔀 23</span>
-                        <span class="repo-stat">🟩 Go</span>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2><span class="gradient-text">GitHub</span> Contributions</h2>
+          <p>My open-source work and repository highlights</p>
         </div>
+        <div class="github-stats">
+          <div class="stat-card">
+            <span class="stat-number">30+</span
+            ><span class="stat-label">Repositories</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">400+</span
+            ><span class="stat-label">Contributions</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">5+</span
+            ><span class="stat-label">Followers</span>
+          </div>
+        </div>
+        <div class="repos-grid">
+          <div class="repo-card">
+            <div class="repo-header">
+              <svg class="repo-icon" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5z"
+                />
+              </svg>
+              <h3>SLSU-SDSO-CAPSTONE-SYSTEM</h3>
+            </div>
+            <p>A paperless event managment and tracking system for SLSU</p>
+            <div class="repo-stats">
+              <span class="repo-stat">🔀 12</span
+              ><span class="repo-stat">🟦 TypeScript</span>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="repo-header">
+              <svg class="repo-icon" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5z"
+                />
+              </svg>
+              <h3>api-automation-toolkit</h3>
+            </div>
+            <p>
+              Automated testing framework for REST APIs with built-in assertions
+              and reporting capabilities.
+            </p>
+            <div class="repo-stats">
+              <span class="repo-stat">⭐ 28</span
+              ><span class="repo-stat">🔀 7</span
+              ><span class="repo-stat">🟨 JavaScript</span>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="repo-header">
+              <svg class="repo-icon" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5z"
+                />
+              </svg>
+              <h3>data-viz-dashboard</h3>
+            </div>
+            <p>
+              Interactive data visualization dashboard using D3.js with
+              real-time data updates and filters.
+            </p>
+            <div class="repo-stats">
+              <span class="repo-stat">⭐ 63</span
+              ><span class="repo-stat">🔀 19</span
+              ><span class="repo-stat">🟨 JavaScript</span>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="repo-header">
+              <svg class="repo-icon" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5z"
+                />
+              </svg>
+              <h3>ml-model-deployment</h3>
+            </div>
+            <p>
+              Machine learning model deployment pipeline with Docker
+              containerization and CI/CD integration.
+            </p>
+            <div class="repo-stats">
+              <span class="repo-stat">⭐ 34</span
+              ><span class="repo-stat">🔀 8</span
+              ><span class="repo-stat">🟦 Python</span>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="repo-header">
+              <svg class="repo-icon" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5z"
+                />
+              </svg>
+              <h3>devops-scripts</h3>
+            </div>
+            <p>
+              Collection of DevOps automation scripts for cloud deployment,
+              monitoring, and infrastructure management.
+            </p>
+            <div class="repo-stats">
+              <span class="repo-stat">⭐ 52</span
+              ><span class="repo-stat">🔀 14</span
+              ><span class="repo-stat">🟧 Shell</span>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="repo-header">
+              <svg class="repo-icon" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5z"
+                />
+              </svg>
+              <h3>microservices-architecture</h3>
+            </div>
+            <p>
+              Scalable microservices architecture demo with service discovery,
+              API gateway, and event-driven design.
+            </p>
+            <div class="repo-stats">
+              <span class="repo-stat">⭐ 71</span
+              ><span class="repo-stat">🔀 23</span
+              ><span class="repo-stat">🟩 Go</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2><span class="gradient-text">Technical</span> Skills</h2>
-                <p>Technologies and tools I work with</p>
-            </div>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>
-                        <span class="skill-icon">💻</span>
-                        Frontend Development
-                    </h3>
-                    <div class="skill-list">
-                        <span class="skill-item">React</span>
-                        <span class="skill-item">Vue.js</span>
-                        <span class="skill-item">TypeScript</span>
-                        <span class="skill-item">Next.js</span>
-                        <span class="skill-item">Tailwind CSS</span>
-                        <span class="skill-item">Redux</span>
-                        <span class="skill-item">HTML5</span>
-                        <span class="skill-item">CSS3</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>
-                        <span class="skill-icon">⚙️</span>
-                        Backend Development
-                    </h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Node.js</span>
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">Express</span>
-                        <span class="skill-item">FastAPI</span>
-                        <span class="skill-item">Django</span>
-                        <span class="skill-item">GraphQL</span>
-                        <span class="skill-item">REST APIs</span>
-                        <span class="skill-item">Go</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>
-                        <span class="skill-icon">🗄️</span>
-                        Database & Cloud
-                    </h3>
-                    <div class="skill-list">
-                        <span class="skill-item">PostgreSQL</span>
-                        <span class="skill-item">MongoDB</span>
-                        <span class="skill-item">Redis</span>
-                        <span class="skill-item">AWS</span>
-                        <span class="skill-item">Docker</span>
-                        <span class="skill-item">Kubernetes</span>
-                        <span class="skill-item">Firebase</span>
-                        <span class="skill-item">MySQL</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>
-                        <span class="skill-icon">🛠️</span>
-                        DevOps & Tools
-                    </h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Git</span>
-                        <span class="skill-item">GitHub Actions</span>
-                        <span class="skill-item">Jenkins</span>
-                        <span class="skill-item">Linux</span>
-                        <span class="skill-item">Nginx</span>
-                        <span class="skill-item">CI/CD</span>
-                        <span class="skill-item">Terraform</span>
-                        <span class="skill-item">Ansible</span>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2><span class="gradient-text">Technical</span> Skills</h2>
+          <p>Technologies and tools I work with</p>
         </div>
+        <div class="skills-container">
+          <div class="skill-category">
+            <h3><span class="skill-icon">💻</span> Frontend Development</h3>
+            <div class="skill-list">
+              <span class="skill-item">JavaScript</span
+              ><span class="skill-item">TypeScript</span>
+              <span class="skill-item">Tailwind CSS</span
+              ><span class="skill-item">HTML5</span>
+              <span class="skill-item">CSS3</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3><span class="skill-icon">⚙️</span> Backend Development</h3>
+            <div class="skill-list">
+              <span class="skill-item">Node.js</span
+              ><span class="skill-item">Python</span>
+              <span class="skill-item">FastAPI</span
+              ><span class="skill-item">REST APIs</span>
+              <span class="skill-item">PHP</span
+              ><span class="skill-item">C#</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3><span class="skill-icon">🗄️</span> Database &amp; Cloud</h3>
+            <div class="skill-list">
+              <span class="skill-item">MySQL</span
+              ><span class="skill-item">Supabase</span>
+              <span class="skill-item">Laravel Cloud</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3><span class="skill-icon">🛠️</span> DevOps &amp; Tools</h3>
+            <div class="skill-list">
+              <span class="skill-item">Git</span
+              ><span class="skill-item">GitHub Actions</span>
+              <span class="skill-item">Linux</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>
+              <span class="skill-icon">📷</span> Multimedia & Content Creation
+            </h3>
+            <div class="skill-list">
+              <span class="skill-item">Adobe Photoshop</span
+              ><span class="skill-item">Adobe Premiere Pro</span>
+              <span class="skill-item">OBS Studio</span>
+              <span class="skill-item">Canva</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiences">
+      <div class="container">
+        <div class="section-header">
+          <h2><span class="gradient-text">My</span> Experiences</h2>
+          <p>Academics in SLSU</p>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="images/jb.jpg" alt="1st EVCO" class="project-image" />
+            <h3>1st EVCO Competition</h3>
+            <p>
+              We participated in the 1st EVCO competition, we were able to
+              showcase our skills and creativity in problem-solving. We managed
+              to gain valuable experience and insights from the competition,
+              which will undoubtedly contribute to our growth as developers.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Rovic</span><span class="tag">Renz</span
+              ><span class="tag">Ryan</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <img
+              src="images/h4g.jpg"
+              alt="HackforGov 2"
+              class="project-image"
+            />
+            <h3>2nd HackforGov Competition in Region 8</h3>
+            <p>
+              Although we didn't win, we were able to showcase our skills and
+              creativity in problem-solving. We managed to gain valuable
+              experience and insights from the competition, which will
+              undoubtedly contribute to our growth as developers.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Rovic</span><span class="tag">Gerald</span
+              ><span class="tag">Shrine</span><span class="tag">Renz</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="images/cert.png" alt="CodeChum" class="project-image" />
+            <h3>CodeChum National Programming Challenge (Java)</h3>
+            <p>
+              We participated in the CodeChum National Programming Challenge
+              (Java) we only managed to reach round 2, but it was a great
+              learning experience for us. We were able to test our coding skills
+              and problem-solving abilities against other talented programmers
+              from across the country.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Rovic</span><span class="tag">Gerald</span
+              ><span class="tag">Renz</span><span class="tag">Ryan</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="images/2nd.jpg" alt="2nd EVCO" class="project-image" />
+            <h3>2nd Eastern Visayas Coding Olympics (EVCO)</h3>
+            <p>
+              On October 18, 2024, I participated in the 2nd Eastern Visayas
+              Coding Olympics (EVCO), held at Western Ormoc College (WLC). Me
+              and my team secured 2nd place in the competition, showcasing our
+              coding skills in java and problem-solving abilities among talented
+              participants from the region.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Rovic</span><span class="tag">Gerald</span
+              ><span class="tag">Harold</span><span class="tag">Jester</span
+              ><span class="tag">Derick</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://www.facebook.com/share/1CXEhmie5q/"
+                class="project-link"
+                >🔗 Post Link</a
+              >
+            </div>
+          </div>
+          <div class="project-card">
+            <img
+              src="images/omni.jpg"
+              alt="HackforGov 3"
+              class="project-image"
+            />
+            <h3>3rd HackforGov Competition in Region 8</h3>
+            <p>
+              We participated in another H4G competition, we saw a significant
+              improvement in our performance, but still falling short of
+              winning. We were able to apply the knowledge and skills we gained
+              from our previous experience, which allowed us to perform better
+              in the competition.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Rovic</span><span class="tag">Gerald</span
+              ><span class="tag">Renz</span><span class="tag">Ryan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="section-header">
+          <br /><br /><br />
+          <p>Multimedia, Content Creation & Organizing</p>
+        </div>
+        <div class="projects-grid">
+
+            <div class="project-card">
+            <img
+              src="images/mal.jpg"
+              alt="HackforGov 3"
+              class="project-image"
+            />
+            <h3>Malitbog Esports Community Open MLBB Tournament 2024</h3>
+            <p>
+              Organized this tournament for the Malitbog Esports Community, which was held on
+              January 2024. I designed the visuals and promotional materials for the event
+            </p>
+            <div class="project-tags">
+              <!-- <span class="tag">Rovic</span><span class="tag">Gerald</span
+              ><span class="tag">Renz</span><span class="tag">Ryan</span> -->
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img src="images/ugames.jpg" alt="CodeChum" class="project-image" />
+            <h3>SLSU Intramurals 2025 (MLBB)</h3>
+            <p>
+              Organized and Made the graphics and content for the SLSU
+              Intramurals 2025 Mobile Legends tournament, which was held on
+              September 2025. I created the visuals and promotional materials
+              for the event, which helped to generate excitement and engagement
+              among the participants and audience.
+            </p>
+            <div class="project-tags">
+              <!-- <span class="tag">Rovic</span><span class="tag">Gerald</span
+              ><span class="tag">Renz</span><span class="tag">Ryan</span> -->
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="images/ints.jpg" alt="2nd EVCO" class="project-image" />
+            <h3>SLSU University Games 2025 (MLBB)</h3>
+            <p>
+              Organized and Created the graphics and content for the SLSU
+              University Games 2025, which was held on October 2025. I designed
+              the visuals and promotional materials for the event, Livestreamed
+              the opening until closing ceremonies for MLBB tournamet covered
+              the event on social media, which helped to increase awareness and
+              engagement among the participants and audience.
+            </p>
+            <div class="project-tags">
+              <!-- <span class="tag">Rovic</span><span class="tag">Gerald</span
+              ><span class="tag">Harold</span><span class="tag">Jester</span
+              ><span class="tag">Derick</span> -->
+            </div>
+          </div>
+          <div class="project-card">
+            <img
+              src="images/lnk.jpg"
+              alt="HackforGov 3"
+              class="project-image"
+            />
+            <h3>Malitbog Linggo ng Kabtaan 2025 MLBB Tournament</h3>
+            <p>
+              Organized and Created the graphics and content for the Malitbog
+              Linggo ng Kabataan 2025, which was held on August 2025. I designed
+              the visuals and promotional materials for the event, Livestreamed
+              the opening until closing ceremonies for MLBB tournamet covered
+              the event on social media, which helped to increase awareness and
+              engagement among the participants and audience.
+            </p>
+            <div class="project-tags">
+              <!-- <span class="tag">Rovic</span><span class="tag">Gerald</span
+              ><span class="tag">Renz</span><span class="tag">Ryan</span> -->
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
     </section>
 
     <section id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h2>Let's Build Something <span class="gradient-text">Amazing</span></h2>
-                    <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="contact-icon">📧</div>
-                            <div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">Email</div>
-                                <a href="mailto:your.email@example.com">your.email@example.com</a>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon">💼</div>
-                            <div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">LinkedIn</div>
-                                <a href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon">💻</div>
-                            <div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">GitHub</div>
-                                <a href="https://github.com/yourusername">github.com/yourusername</a>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon">🐦</div>
-                            <div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">Twitter</div>
-                                <a href="https://twitter.com/yourhandle">@yourhandle</a>
-                            </div>
-                        </div>
-                    </div>
+      <div class="container">
+        <div class="contact-content">
+          <div class="contact-info">
+            <h2>
+              Let's Build Something <span class="gradient-text">Amazing</span>
+            </h2>
+            <p>
+              I'm always interested in hearing about new projects and
+              opportunities. Feel free to reach out!
+            </p>
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="contact-icon">💼</div>
+                <div>
+                  <div style="color: var(--text-muted); font-size: 0.9rem">
+                    LinkedIn
+                  </div>
+                  <a
+                    href="https://www.linkedin.com/in/rovic-kristian-laniog-5b9034373/"
+                    >Rovic Kristian C. Laniog</a
+                  >
                 </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                    </form>
+              </div>
+              <div class="contact-method">
+                <div class="contact-icon">💻</div>
+                <div>
+                  <div style="color: var(--text-muted); font-size: 0.9rem">
+                    GitHub
+                  </div>
+                  <a href="https://github.com/ferntzy">github.com/ferntzy</a>
                 </div>
+              </div>
             </div>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <button
+                type="submit"
+                id="submitBtn"
+                class="btn btn-primary"
+                style="width: 100%"
+              >
+                <span id="btnText">Send Message</span>
+                <span id="btnSpinner" style="display: none">Sending…</span>
+              </button>
+            </form>
+          </div>
         </div>
+      </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Your Name. Built with passion and lots of coffee ☕</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2026 Rovic Kristian C. Laniog.</p>
+      </div>
     </footer>
 
-    <script source="script.js"></script>
-</body>
+    <script src="script.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <style>
+      /* ── Themed SweetAlert2 overrides ── */
+      .swal-rovic-popup {
+        background: #0f1225 !important;
+        border: 1px solid rgba(99, 102, 241, 0.35) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 0 48px rgba(99, 102, 241, 0.18) !important;
+        font-family: "DM Sans", sans-serif !important;
+      }
+      .swal-rovic-title {
+        color: #f0f0f8 !important;
+        font-family: "Syne", sans-serif !important;
+        font-weight: 800 !important;
+        font-size: 1.5rem !important;
+      }
+      .swal-rovic-html {
+        color: #8b8fae !important;
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+      }
+      .swal-rovic-confirm {
+        background: #6366f1 !important;
+        border: none !important;
+        border-radius: 8px !important;
+        font-family: "DM Sans", sans-serif !important;
+        font-weight: 500 !important;
+        padding: 0.6rem 1.8rem !important;
+        font-size: 0.9rem !important;
+        transition:
+          box-shadow 0.2s,
+          transform 0.15s !important;
+      }
+      .swal-rovic-confirm:hover {
+        box-shadow: 0 4px 20px rgba(99, 102, 241, 0.5) !important;
+        transform: translateY(-1px) !important;
+      }
+      .swal-rovic-icon-success {
+        border-color: #6366f1 !important;
+        color: #6366f1 !important;
+      }
+      .swal-rovic-icon-error {
+        border-color: #f87171 !important;
+        color: #f87171 !important;
+      }
+      /* success icon checkmark colour */
+      .swal2-success .swal2-success-ring {
+        border-color: rgba(99, 102, 241, 0.35) !important;
+      }
+      .swal2-success [class^="swal2-success-line"] {
+        background: #6366f1 !important;
+      }
+      /* error icon X colour */
+      .swal2-error [class^="swal2-x-mark-line"] {
+        background: #f87171 !important;
+      }
+      .swal2-error {
+        border-color: rgba(248, 113, 113, 0.5) !important;
+      }
+      /* backdrop */
+      .swal2-backdrop-show {
+        background: rgba(5, 7, 20, 0.75) !important;
+        backdrop-filter: blur(4px) !important;
+      }
+    </style>
+
+    <script>
+      /* ── EmailJS init — replace these two strings with your real IDs ── */
+      emailjs.init("Ocol9-ye4mrd2ulbR");
+      const EMAILJS_SERVICE = "service_3rhlchh";
+      const EMAILJS_TEMPLATE = "template_faxhqvv";
+
+      const form = document.getElementById("contactForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const btnText = document.getElementById("btnText");
+      const btnSpinner = document.getElementById("btnSpinner");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        /* Loading state */
+        submitBtn.disabled = true;
+        btnText.style.display = "none";
+        btnSpinner.style.display = "inline";
+
+        const templateParams = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          message: document.getElementById("message").value,
+        };
+
+        emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, templateParams).then(
+          function (response) {
+            submitBtn.disabled = false;
+            btnText.style.display = "inline";
+            btnSpinner.style.display = "none";
+
+            form.reset();
+            Swal.fire({
+              icon: "success",
+              title: "Message Sent!",
+              html: "Thanks for reaching out, <strong style='color:#a5b4fc'>Rovic</strong> will get back to you soon.",
+              confirmButtonText: "Awesome",
+              customClass: {
+                popup: "swal-rovic-popup",
+                title: "swal-rovic-title",
+                htmlContainer: "swal-rovic-html",
+                confirmButton: "swal-rovic-confirm",
+                icon: "swal-rovic-icon-success",
+              },
+              buttonsStyling: false,
+            });
+          },
+          function (error) {
+            submitBtn.disabled = false;
+            btnText.style.display = "inline";
+            btnSpinner.style.display = "none";
+
+            console.error("EmailJS error:", error);
+            Swal.fire({
+              icon: "error",
+              title: "Oops!",
+              html: "Something went wrong. <strong style='color:#a5b4fc'>Please try again</strong>",
+              confirmButtonText: "Got it",
+              customClass: {
+                popup: "swal-rovic-popup",
+                title: "swal-rovic-title",
+                htmlContainer: "swal-rovic-html",
+                confirmButton: "swal-rovic-confirm",
+                icon: "swal-rovic-icon-error",
+              },
+              buttonsStyling: false,
+            });
+          },
+        );
+      });
+
+      /* ── Orbit animation — fully responsive ── */
+      const sceneEl = document.getElementById("scene");
+      const canvas = document.getElementById("orbitCanvas");
+      let W, H, cx, cy;
+
+      function resizeCanvas() {
+        W = sceneEl.offsetWidth;
+        H = sceneEl.offsetHeight;
+        canvas.width = W * devicePixelRatio;
+        canvas.height = H * devicePixelRatio;
+        canvas.style.width = W + "px";
+        canvas.style.height = H + "px";
+        cx = W / 2;
+        cy = H / 2;
+      }
+
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+
+      const ctx = canvas.getContext("2d");
+      const TILT = Math.PI * 0.22;
+
+      /* Ring definitions — radii are fractions of half the scene width */
+      const RING_FRACS = [0.39, 0.53, 0.655];
+
+      const ringDefs = [
+        {
+          frac: RING_FRACS[0],
+          speed: 0.55,
+          color: "rgba(99,102,241,0.22)",
+          badges: ["JavaScript", "TypeScript", "HTML5"],
+          badgeColors: [
+            {
+              bg: "rgba(99,102,241,0.3)",
+              text: "#c4b5fd",
+              stroke: "rgba(167,139,250,0.4)",
+            },
+            {
+              bg: "rgba(59,130,246,0.25)",
+              text: "#93c5fd",
+              stroke: "rgba(147,197,253,0.4)",
+            },
+            {
+              bg: "rgba(20,184,166,0.22)",
+              text: "#5eead4",
+              stroke: "rgba(94,234,212,0.35)",
+            },
+          ],
+          phase: 0,
+        },
+        {
+          frac: RING_FRACS[1],
+          speed: 0.35,
+          color: "rgba(139,92,246,0.18)",
+          badges: ["Node.js", "Python", "PHP", "FastAPI"],
+          badgeColors: [
+            {
+              bg: "rgba(245,158,11,0.22)",
+              text: "#fcd34d",
+              stroke: "rgba(252,211,77,0.35)",
+            },
+            {
+              bg: "rgba(99,102,241,0.28)",
+              text: "#c4b5fd",
+              stroke: "rgba(167,139,250,0.4)",
+            },
+            {
+              bg: "rgba(236,72,153,0.2)",
+              text: "#f9a8d4",
+              stroke: "rgba(249,168,212,0.35)",
+            },
+            {
+              bg: "rgba(20,184,166,0.22)",
+              text: "#5eead4",
+              stroke: "rgba(94,234,212,0.35)",
+            },
+          ],
+          phase: 1.1,
+        },
+        {
+          frac: RING_FRACS[2],
+          speed: -0.22,
+          color: "rgba(165,180,252,0.12)",
+          badges: ["MySQL", "REST APIs", "Git", "CSS3", "Linux"],
+          badgeColors: [
+            {
+              bg: "rgba(59,130,246,0.22)",
+              text: "#93c5fd",
+              stroke: "rgba(147,197,253,0.35)",
+            },
+            {
+              bg: "rgba(20,184,166,0.2)",
+              text: "#5eead4",
+              stroke: "rgba(94,234,212,0.3)",
+            },
+            {
+              bg: "rgba(99,102,241,0.25)",
+              text: "#c4b5fd",
+              stroke: "rgba(167,139,250,0.38)",
+            },
+            {
+              bg: "rgba(236,72,153,0.18)",
+              text: "#f9a8d4",
+              stroke: "rgba(249,168,212,0.3)",
+            },
+            {
+              bg: "rgba(245,158,11,0.2)",
+              text: "#fcd34d",
+              stroke: "rgba(252,211,77,0.32)",
+            },
+          ],
+          phase: 0.5,
+        },
+      ];
+
+      const offsets = ringDefs.map(() => 0);
+      let last = null;
+
+      function drawEllipse(rx, ry, color) {
+        ctx.beginPath();
+        ctx.ellipse(
+          cx * devicePixelRatio,
+          cy * devicePixelRatio,
+          rx * devicePixelRatio,
+          ry * devicePixelRatio,
+          0,
+          0,
+          Math.PI * 2,
+        );
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 0.8 * devicePixelRatio;
+        ctx.stroke();
+      }
+
+      function drawBadge(x, y, label, bc) {
+        const dpr = devicePixelRatio;
+        const pad = 7 * dpr,
+          fs = 10.5 * dpr;
+        ctx.font = `500 ${fs}px 'DM Sans', sans-serif`;
+        const tw = ctx.measureText(label).width;
+        const bw = tw + pad * 2,
+          bh = 18 * dpr;
+        const rr = 9 * dpr;
+
+        ctx.save();
+        ctx.translate(x * dpr, y * dpr);
+
+        ctx.beginPath();
+        ctx.moveTo(-bw / 2 + rr, -bh / 2);
+        ctx.lineTo(bw / 2 - rr, -bh / 2);
+        ctx.arcTo(bw / 2, -bh / 2, bw / 2, -bh / 2 + rr, rr);
+        ctx.lineTo(bw / 2, bh / 2 - rr);
+        ctx.arcTo(bw / 2, bh / 2, bw / 2 - rr, bh / 2, rr);
+        ctx.lineTo(-bw / 2 + rr, bh / 2);
+        ctx.arcTo(-bw / 2, bh / 2, -bw / 2, bh / 2 - rr, rr);
+        ctx.lineTo(-bw / 2, -bh / 2 + rr);
+        ctx.arcTo(-bw / 2, -bh / 2, -bw / 2 + rr, -bh / 2, rr);
+        ctx.closePath();
+
+        ctx.fillStyle = bc.bg;
+        ctx.fill();
+        ctx.strokeStyle = bc.stroke;
+        ctx.lineWidth = 0.7 * dpr;
+        ctx.stroke();
+        ctx.fillStyle = bc.text;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(label, 0, 0.5 * dpr);
+
+        ctx.restore();
+      }
+
+      function frame(ts) {
+        const dt = last ? (ts - last) / 1000 : 0;
+        last = ts;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const halfW = W / 2;
+        ringDefs.forEach((r, i) => {
+          offsets[i] += r.speed * dt;
+          const rx = r.frac * halfW;
+          const ry = rx * Math.cos(TILT);
+          drawEllipse(rx, ry, r.color);
+        });
+
+        const allBadges = [];
+        ringDefs.forEach((r, ri) => {
+          const rx = r.frac * halfW;
+          const ry = rx * Math.cos(TILT);
+          const n = r.badges.length;
+          r.badges.forEach((label, bi) => {
+            const angle = offsets[ri] + r.phase + (bi / n) * Math.PI * 2;
+            allBadges.push({
+              x: cx + rx * Math.cos(angle),
+              y: cy + ry * Math.sin(angle),
+              label,
+              bc: r.badgeColors[bi],
+            });
+          });
+        });
+
+        allBadges.sort((a, b) => a.y - b.y);
+        allBadges.forEach((b) => drawBadge(b.x, b.y, b.label, b.bc));
+
+        requestAnimationFrame(frame);
+      }
+
+      requestAnimationFrame(frame);
+    </script>
+  </body>
 </html>
