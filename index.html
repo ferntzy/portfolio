@@ -279,6 +279,60 @@
           width: 250px;
           height: 250px;
         }
+
+        .grad {
+          background: linear-gradient(90deg, #00d4ff, #ff00aa, #7c00ff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: bold;
+        }
+
+        /* Optional: cursor blink effect */
+        .typewriter-cursor {
+          display: inline-block;
+          width: 2px;
+          height: 1.1em;
+          background: currentColor;
+          vertical-align: middle;
+          animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+        }
+
+        .grad {
+          background: linear-gradient(90deg, #00d4ff, #ff00aa, #7c00ff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: bold;
+        }
+
+        /* Optional: cursor blink effect */
+        .typewriter-cursor {
+          display: inline-block;
+          width: 2px;
+          height: 1.1em;
+          background: currentColor;
+          vertical-align: middle;
+          animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+        }
       }
     </style>
   </head>
@@ -303,15 +357,18 @@
       <div class="hero-wrap">
         <div class="hero-inner">
           <div class="hero-text">
-            <h1>Hi, I'm <span class="grad">Rovic</span></h1>
+            <h1>
+              Hi, I'm <span class="grad" id="typewriter-name">Rovic</span>
+            </h1>
             <p class="hero-subtitle">
-              Full-Stack Developer, IT Specialist, Content Creator &amp; Organizer
+              Full-Stack Developer, IT Specialist, Content Creator &amp;
+              Organizer
             </p>
             <p class="hero-desc">
               I build innovative solutions and contribute to open-source
               projects. Passionate about clean code, modern technologies, and
               crafting impactful applications—while also creating engaging
-              digital content, live streaming and organizing events 
+              digital content, live streaming and organizing events
             </p>
             <div class="hero-btns">
               <a href="#projects" class="hero-btn hero-btn-primary"
@@ -401,11 +458,7 @@
           </div>
 
           <div class="project-card">
-            <img
-              src="images/ai.png"
-              alt="Project 3"
-              class="project-image"
-            />
+            <img src="images/ai.png" alt="Project 3" class="project-image" />
             <h3>AI Chat Application</h3>
             <p>
               Intelligent chatbot with natural language processing capabilities
@@ -415,9 +468,7 @@
               <span class="tag">Python</span><span class="tag">FastAPI</span>
               <span class="tag">OpenAI</span><span class="tag">React</span>
             </div>
-            <div class="project-links">
-             
-            </div>
+            <div class="project-links"></div>
           </div>
         </div>
       </div>
@@ -721,8 +772,7 @@
           <p>Multimedia, Content Creation & Organizing</p>
         </div>
         <div class="projects-grid">
-
-            <div class="project-card">
+          <div class="project-card">
             <img
               src="images/mal.jpg"
               alt="HackforGov 3"
@@ -730,8 +780,9 @@
             />
             <h3>Malitbog Esports Community Open MLBB Tournament 2024</h3>
             <p>
-              Organized this tournament for the Malitbog Esports Community, which was held on
-              January 2024. I designed the visuals and promotional materials for the event
+              Organized this tournament for the Malitbog Esports Community,
+              which was held on January 2024. I designed the visuals and
+              promotional materials for the event
             </p>
             <div class="project-tags">
               <!-- <span class="tag">Rovic</span><span class="tag">Gerald</span
@@ -791,8 +842,6 @@
               ><span class="tag">Renz</span><span class="tag">Ryan</span> -->
             </div>
           </div>
-
-          
         </div>
       </div>
     </section>
@@ -953,7 +1002,6 @@
       form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        /* Loading state */
         submitBtn.disabled = true;
         btnText.style.display = "none";
         btnSpinner.style.display = "inline";
@@ -965,7 +1013,7 @@
         };
 
         emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, templateParams).then(
-          function (response) {
+          function () {
             submitBtn.disabled = false;
             btnText.style.display = "inline";
             btnSpinner.style.display = "none";
@@ -1010,7 +1058,7 @@
         );
       });
 
-      /* ── Orbit animation — fully responsive ── */
+      /* ── Orbit animation ── */
       const sceneEl = document.getElementById("scene");
       const canvas = document.getElementById("orbitCanvas");
       let W, H, cx, cy;
@@ -1020,8 +1068,8 @@
         H = sceneEl.offsetHeight;
         canvas.width = W * devicePixelRatio;
         canvas.height = H * devicePixelRatio;
-        canvas.style.width = W + "px";
-        canvas.style.height = H + "px";
+        canvas.style.width = `${W}px`;
+        canvas.style.height = `${H}px`;
         cx = W / 2;
         cy = H / 2;
       }
@@ -1032,7 +1080,6 @@
       const ctx = canvas.getContext("2d");
       const TILT = Math.PI * 0.22;
 
-      /* Ring definitions — radii are fractions of half the scene width */
       const RING_FRACS = [0.39, 0.53, 0.655];
 
       const ringDefs = [
@@ -1040,7 +1087,11 @@
           frac: RING_FRACS[0],
           speed: 0.55,
           color: "rgba(99,102,241,0.22)",
-          badges: ["JavaScript", "TypeScript", "HTML5"],
+          badges: [
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+          ],
           badgeColors: [
             {
               bg: "rgba(99,102,241,0.3)",
@@ -1064,7 +1115,12 @@
           frac: RING_FRACS[1],
           speed: 0.35,
           color: "rgba(139,92,246,0.18)",
-          badges: ["Node.js", "Python", "PHP", "FastAPI"],
+          badges: [
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+          ],
           badgeColors: [
             {
               bg: "rgba(245,158,11,0.22)",
@@ -1093,7 +1149,16 @@
           frac: RING_FRACS[2],
           speed: -0.22,
           color: "rgba(165,180,252,0.12)",
-          badges: ["MySQL", "REST APIs", "Git", "CSS3", "Linux"],
+          badges: [
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-plain.svg",
+            // "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/obsstudio/obsstudio-original.svg", // may not exist — fallback used below if needed
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", // Canva fallback (design tool)
+          ],
           badgeColors: [
             {
               bg: "rgba(59,130,246,0.22)",
@@ -1125,6 +1190,22 @@
         },
       ];
 
+      // Preload images
+      const badgeImages = [];
+
+      function preloadBadges() {
+        ringDefs.forEach((ring) => {
+          ring.badges.forEach((url) => {
+            const img = new Image();
+            img.crossOrigin = "anonymous"; // helps with potential canvas tainting
+            img.src = url;
+            badgeImages.push(img);
+          });
+        });
+      }
+
+      preloadBadges();
+
       const offsets = ringDefs.map(() => 0);
       let last = null;
 
@@ -1144,40 +1225,46 @@
         ctx.stroke();
       }
 
-      function drawBadge(x, y, label, bc) {
+      function drawBadge(x, y, imgIndex, bc) {
         const dpr = devicePixelRatio;
-        const pad = 7 * dpr,
-          fs = 10.5 * dpr;
-        ctx.font = `500 ${fs}px 'DM Sans', sans-serif`;
-        const tw = ctx.measureText(label).width;
-        const bw = tw + pad * 2,
-          bh = 18 * dpr;
-        const rr = 9 * dpr;
+        const size = 34 * dpr; // slightly larger than 32 for better visibility
+        const half = size / 2;
+        const pad = 6 * dpr;
+        const radius = 12 * dpr; // rounded corners
+
+        const img = badgeImages[imgIndex];
 
         ctx.save();
         ctx.translate(x * dpr, y * dpr);
 
+        // Background rounded rectangle
         ctx.beginPath();
-        ctx.moveTo(-bw / 2 + rr, -bh / 2);
-        ctx.lineTo(bw / 2 - rr, -bh / 2);
-        ctx.arcTo(bw / 2, -bh / 2, bw / 2, -bh / 2 + rr, rr);
-        ctx.lineTo(bw / 2, bh / 2 - rr);
-        ctx.arcTo(bw / 2, bh / 2, bw / 2 - rr, bh / 2, rr);
-        ctx.lineTo(-bw / 2 + rr, bh / 2);
-        ctx.arcTo(-bw / 2, bh / 2, -bw / 2, bh / 2 - rr, rr);
-        ctx.lineTo(-bw / 2, -bh / 2 + rr);
-        ctx.arcTo(-bw / 2, -bh / 2, -bw / 2 + rr, -bh / 2, rr);
-        ctx.closePath();
-
+        ctx.roundRect(
+          -half - pad,
+          -half - pad,
+          size + pad * 2,
+          size + pad * 2,
+          radius,
+        );
         ctx.fillStyle = bc.bg;
         ctx.fill();
         ctx.strokeStyle = bc.stroke;
-        ctx.lineWidth = 0.7 * dpr;
+        ctx.lineWidth = 1.1 * dpr;
         ctx.stroke();
-        ctx.fillStyle = bc.text;
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText(label, 0, 0.5 * dpr);
+
+        // Draw icon
+        if (img.complete && img.naturalWidth > 0) {
+          ctx.drawImage(img, -half, -half, size, size);
+        } else {
+          // Loading / error placeholder
+          ctx.fillStyle = "rgba(200,200,200,0.3)";
+          ctx.fillRect(-half, -half, size, size);
+          ctx.fillStyle = "rgba(255,100,100,0.6)";
+          ctx.font = `${12 * dpr}px sans-serif`;
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText("?", 0, 0);
+        }
 
         ctx.restore();
       }
@@ -1189,6 +1276,7 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         const halfW = W / 2;
+
         ringDefs.forEach((r, i) => {
           offsets[i] += r.speed * dt;
           const rx = r.frac * halfW;
@@ -1197,28 +1285,94 @@
         });
 
         const allBadges = [];
+        let globalIndex = 0;
+
         ringDefs.forEach((r, ri) => {
           const rx = r.frac * halfW;
           const ry = rx * Math.cos(TILT);
           const n = r.badges.length;
-          r.badges.forEach((label, bi) => {
+
+          r.badges.forEach((_, bi) => {
             const angle = offsets[ri] + r.phase + (bi / n) * Math.PI * 2;
             allBadges.push({
               x: cx + rx * Math.cos(angle),
               y: cy + ry * Math.sin(angle),
-              label,
-              bc: r.badgeColors[bi],
+              imgIndex: globalIndex++,
+              bc: r.badgeColors[bi % r.badgeColors.length],
             });
           });
         });
 
         allBadges.sort((a, b) => a.y - b.y);
-        allBadges.forEach((b) => drawBadge(b.x, b.y, b.label, b.bc));
+
+        allBadges.forEach((b) => {
+          drawBadge(b.x, b.y, b.imgIndex, b.bc);
+        });
 
         requestAnimationFrame(frame);
       }
 
       requestAnimationFrame(frame);
+
+      // Typewriter effect
+      const names = ["Rovic", "Fern", "Kristian"];
+      let currentIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      const typewriterElement = document.getElementById("typewriter-name");
+
+      const typingSpeed = 120;
+      const deletingSpeed = 70;
+      const pauseBetween = 2200;
+
+      function type() {
+        const currentName = names[currentIndex];
+
+        if (!isDeleting && charIndex <= currentName.length) {
+          typewriterElement.textContent =
+            currentName.substring(0, charIndex) +
+            (charIndex < currentName.length ? "|" : "");
+          charIndex++;
+          setTimeout(type, typingSpeed);
+          return;
+        }
+
+        if (!isDeleting && charIndex > currentName.length) {
+          typewriterElement.textContent = currentName + "|";
+          setTimeout(() => {
+            isDeleting = true;
+            type();
+          }, pauseBetween);
+          return;
+        }
+
+        if (isDeleting && charIndex > 0) {
+          typewriterElement.textContent =
+            currentName.substring(0, charIndex - 1) + "|";
+          charIndex--;
+          setTimeout(type, deletingSpeed);
+          return;
+        }
+
+        if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          currentIndex = (currentIndex + 1) % names.length;
+          setTimeout(type, 400);
+        }
+      }
+
+      type();
+
+      setInterval(() => {
+        if (typewriterElement.textContent.endsWith("|")) {
+          typewriterElement.textContent = typewriterElement.textContent.slice(
+            0,
+            -1,
+          );
+        } else if (!isDeleting) {
+          typewriterElement.textContent += "|";
+        }
+      }, 500);
     </script>
   </body>
 </html>
