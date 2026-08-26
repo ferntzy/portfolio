@@ -322,13 +322,14 @@ textarea {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  filter: grayscale(1) contrast(1.02);
   border: 1px solid var(--line);
-  transition: filter 0.5s ease;
+  box-shadow: 8px 8px 0 var(--accent-soft);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .hero-portrait:hover img {
-  filter: grayscale(0);
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 var(--accent-soft);
 }
 
 @media (max-width: 860px) {
@@ -449,13 +450,7 @@ textarea {
   width: 200px;
   height: 140px;
   object-fit: cover;
-  filter: grayscale(1);
   border: 1px solid var(--line);
-  transition: filter 0.4s ease;
-}
-
-.work-item:hover .work-image {
-  filter: grayscale(0);
 }
 
 .work-more {
@@ -485,6 +480,134 @@ textarea {
     height: 180px;
     order: 3;
     margin-top: 8px;
+  }
+}
+
+/* ── More projects (text-only list) ── */
+.more-projects {
+  margin-top: 8px;
+  padding-top: 32px;
+}
+
+.more-projects-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mist);
+  margin-bottom: 16px;
+}
+
+.more-projects-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 40px;
+}
+
+.more-projects-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14.5px;
+  color: var(--ink);
+}
+
+.has-js .more-projects-list li {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.more-projects-list li.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.more-projects-stack {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--mist);
+  white-space: nowrap;
+}
+
+@media (max-width: 620px) {
+  .more-projects-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   Work Experience (jobs)
+   ============================================================ */
+.job-list {
+  border-top: 1px solid var(--line);
+}
+
+.job {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.has-js .job {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.job.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.job-role {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.job-org {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.job-date {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--mist);
+}
+
+.job-bullets li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.job-bullets li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.job-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .job {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }
 
@@ -537,7 +660,7 @@ textarea {
 }
 
 /* ============================================================
-   Experience
+   Community (competitions + content)
    ============================================================ */
 .exp-columns {
   display: grid;

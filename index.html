@@ -1,319 +1,458 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <title>Rovic Kristian Laniog — Full-Stack Developer</title>
-    <meta
-      name="description"
-      content="Rovic Kristian C. Laniog — full-stack developer based in Southern Leyte, Philippines. Web systems, capstone and cooperative projects, and community esports production."
-    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <script>document.documentElement.classList.add('has-js');</script>
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <title>Rovic Kristian Laniog — Full-Stack Developer</title>
+  <meta name="description"
+    content="Rovic Kristian C. Laniog — full-stack developer based in Malitbog, Southern Leyte, Philippines. Production web apps, healthcare tooling, capstone systems, and community esports production." />
 
-    <header class="site-header">
-      <div class="wrap header-inner">
-        <a class="wordmark" href="#home">Rovic Kristian Laniog</a>
-        <nav class="site-nav" aria-label="Primary">
-          <a href="#work">Work</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-          <a href="https://github.com/ferntzy" target="_blank" rel="noopener">GitHub ↗</a>
-        </nav>
-      </div>
-    </header>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add('has-js');</script>
+</head>
 
-    <main id="main">
-      <!-- ───────────────────────── Hero ───────────────────────── -->
-      <section id="home" class="hero">
-        <div class="wrap hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Rovic Kristian C. Laniog — Full&#8209;Stack Developer</p>
-            <h1 class="hero-title">
-              I build systems<br />
-              people actually <em>rely on.</em>
-            </h1>
-            <p class="hero-desc">
-              Based in Southern Leyte, Philippines. I've spent the last
-              couple of years taking projects from a blank repository to
-              something real people use &mdash; a student‑org event platform,
-              a cooperative's member portal, a few things built purely for
-              fun. When I'm not writing code, I'm usually behind a camera or
-              a mixing board, running livestreams and designing graphics for
-              community esports events.
-            </p>
-            <div class="hero-actions">
-              <a class="btn-primary" href="#work">View the work <span aria-hidden="true">→</span></a>
-              <a class="btn-text" href="#contact">Say hello</a>
-            </div>
-          </div>
-          <div class="hero-portrait">
-            <img src="images/rovic.jpg" alt="Portrait of Rovic Kristian Laniog" />
-          </div>
-        </div>
-      </section>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-      <!-- ───────────────────────── Work ───────────────────────── -->
-      <section id="work" class="section">
-        <div class="wrap">
-          <div class="section-head">
-            <p class="eyebrow">Selected Work</p>
-            <h2 class="section-title">A few things I've shipped.</h2>
-          </div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="#home">Rovic Kristian Laniog</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#community">Community</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/ferntzy" target="_blank" rel="noopener">GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
 
-          <ol class="work-list">
-            <li class="work-item reveal">
-              <span class="work-index">01</span>
-              <div class="work-body">
-                <div class="work-heading">
-                  <h3>Student Event Management Information System</h3>
-                  <span class="work-stack">Laravel 11 · Blade · MySQL</span>
-                </div>
-                <p>
-                  Capstone project for SLSU's Student Development Services
-                  Office &mdash; a full event-management platform with
-                  multi-level approval workflows, venue booking, and a
-                  real-time calendar for student organizations.
-                </p>
-                <div class="work-links">
-                  <a href="https://github.com/ferntzy/SLSU-SDSO-CAPSTONE-SYSTEM" target="_blank" rel="noopener">Source ↗</a>
-                </div>
-              </div>
-              <img class="work-image" src="images/semis.png" alt="SEMIS dashboard screenshot" loading="lazy" />
-            </li>
-
-            <li class="work-item reveal">
-              <span class="work-index">02</span>
-              <div class="work-body">
-                <div class="work-heading">
-                  <h3>SLEM Cooperative Platform</h3>
-                  <span class="work-stack">Laravel Filament · React</span>
-                </div>
-                <p>
-                  Built with a seven-person team for the Southern Leyte
-                  Employees Multi-Purpose Cooperative &mdash; a prototype
-                  covering the co-op's member services end to end.
-                </p>
-                <div class="work-links">
-                  <a href="https://slemcoop.creativedevlabs.com/" target="_blank" rel="noopener">Live ↗</a>
-                </div>
-              </div>
-              <img class="work-image" src="images/slem.png" alt="SLEM cooperative platform screenshot" loading="lazy" />
-            </li>
-
-            <li class="work-item reveal">
-              <span class="work-index">03</span>
-              <div class="work-body">
-                <div class="work-heading">
-                  <h3>Confession Calculator</h3>
-                  <span class="work-stack">HTML · CSS · JavaScript</span>
-                </div>
-                <p>
-                  A calculator with a sense of humor. It still does the
-                  math &mdash; it's just a little more interested in how
-                  you're feeling. A side project built to make someone
-                  smile.
-                </p>
-                <div class="work-links">
-                  <a href="https://ferntzy.github.io/calculator/" target="_blank" rel="noopener">Live ↗</a>
-                  <a href="https://github.com/ferntzy/calculator" target="_blank" rel="noopener">Source ↗</a>
-                </div>
-              </div>
-              <img class="work-image" src="images/ai.png" alt="Confession Calculator screenshot" loading="lazy" />
-            </li>
-          </ol>
-
-          <p class="work-more">
-            More of what I build lives on
-            <a href="https://github.com/ferntzy" target="_blank" rel="noopener">github.com/ferntzy ↗</a>
+  <main id="main">
+    <!-- ───────────────────────── Hero ───────────────────────── -->
+    <section id="home" class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Rovic Kristian C. Laniog — Full&#8209;Stack Developer</p>
+          <h1 class="hero-title">
+            I build systems<br />
+            people actually <em>rely on.</em>
+          </h1>
+          <p class="hero-desc">
+            Based in Malitbog, Southern Leyte, Philippines. I've spent the
+            last couple of years taking projects from a blank repository
+            to something a real organization runs on &mdash; a live
+            hospital website, a PhilHealth ICD&#8209;10 coding assistant,
+            a cooperative's member platform, and internal reporting tools
+            built for an active healthcare client. When I'm not writing
+            code, I'm usually behind a camera or a mixing board, running
+            livestreams and designing graphics for community esports
+            events.
           </p>
-        </div>
-      </section>
-
-      <!-- ───────────────────────── Skills ───────────────────────── -->
-      <section id="skills" class="section section-tint">
-        <div class="wrap">
-          <div class="section-head">
-            <p class="eyebrow">Toolkit</p>
-            <h2 class="section-title">What I work with.</h2>
-          </div>
-
-          <dl class="skills-table">
-            <div class="skills-row reveal">
-              <dt>Languages</dt>
-              <dd>JavaScript, TypeScript, PHP, Python, HTML, CSS, C#</dd>
-            </div>
-            <div class="skills-row reveal">
-              <dt>Frameworks</dt>
-              <dd>React, Laravel, Tailwind CSS, FastAPI, Node.js</dd>
-            </div>
-            <div class="skills-row reveal">
-              <dt>Data &amp; Cloud</dt>
-              <dd>MySQL, Supabase, Laravel Cloud</dd>
-            </div>
-            <div class="skills-row reveal">
-              <dt>Tooling</dt>
-              <dd>Git, GitHub Actions, Linux</dd>
-            </div>
-            <div class="skills-row reveal">
-              <dt>Creative</dt>
-              <dd>Adobe Photoshop, Premiere Pro, OBS Studio, Canva</dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
-      <!-- ───────────────────────── Experience ───────────────────────── -->
-      <section id="experience" class="section">
-        <div class="wrap">
-          <div class="section-head">
-            <p class="eyebrow">Along the Way</p>
-            <h2 class="section-title">Competitions &amp; community work.</h2>
-          </div>
-
-          <div class="exp-columns">
-            <div class="exp-col">
-              <h3 class="exp-col-title">Competitions</h3>
-              <ul class="exp-list">
-                <li class="reveal">
-                  <span class="exp-date">2024</span>
-                  <div>
-                    <p class="exp-title">1st EVCO Competition</p>
-                    <p class="exp-desc">Competed with Renz and Ryan &mdash; our first taste of competitive problem-solving.</p>
-                  </div>
-                </li>
-                <li class="reveal">
-                  <span class="exp-date">2024</span>
-                  <div>
-                    <p class="exp-title">2nd HackforGov, Region 8</p>
-                    <p class="exp-desc">Pitched a civic-tech solution with Gerald, Shrine, and Renz. Didn't win, but learned a lot.</p>
-                  </div>
-                </li>
-                <li class="reveal">
-                  <span class="exp-date">2024</span>
-                  <div>
-                    <p class="exp-title">CodeChum National Programming Challenge</p>
-                    <p class="exp-desc">Reached round two nationally in Java with Gerald, Renz, and Ryan.</p>
-                  </div>
-                </li>
-                <li class="reveal">
-                  <span class="exp-date">Oct 2024</span>
-                  <div>
-                    <p class="exp-title">2nd Eastern Visayas Coding Olympics</p>
-                    <p class="exp-desc">
-                      Placed 2nd at Western Leyte College with Gerald, Harold, Jester, and Derick.
-                      <a href="https://www.facebook.com/share/1CXEhmie5q/" target="_blank" rel="noopener">Post ↗</a>
-                    </p>
-                  </div>
-                </li>
-                <li class="reveal">
-                  <span class="exp-date">2024</span>
-                  <div>
-                    <p class="exp-title">3rd HackforGov, Region 8</p>
-                    <p class="exp-desc">Returned with Gerald, Renz, and Ryan and improved on our previous result.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div class="exp-col">
-              <h3 class="exp-col-title">Content &amp; Events</h3>
-              <ul class="exp-list">
-                <li class="reveal">
-                  <span class="exp-date">Jan 2024</span>
-                  <div>
-                    <p class="exp-title">Malitbog Esports Community Open — MLBB Tournament</p>
-                    <p class="exp-desc">Organized the tournament and designed all promotional visuals.</p>
-                  </div>
-                </li>
-                <li class="reveal">
-                  <span class="exp-date">Aug 2025</span>
-                  <div>
-                    <p class="exp-title">Malitbog Linggo ng Kabataan — MLBB Tournament</p>
-                    <p class="exp-desc">Designed the visuals and ran the full livestream, opening to closing.</p>
-                  </div>
-                </li>
-                <li class="reveal">
-                  <span class="exp-date">Sep 2025</span>
-                  <div>
-                    <p class="exp-title">SLSU Intramurals 2025 (MLBB)</p>
-                    <p class="exp-desc">Produced tournament graphics and promotional content.</p>
-                  </div>
-                </li>
-                <li class="reveal">
-                  <span class="exp-date">Oct 2025</span>
-                  <div>
-                    <p class="exp-title">SLSU University Games 2025 (MLBB)</p>
-                    <p class="exp-desc">Organized graphics, livestreamed the full tournament, and covered it on social media.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#work">View the work <span aria-hidden="true">→</span></a>
+            <a class="btn-text" href="#contact">Say hello</a>
           </div>
         </div>
-      </section>
+        <div class="hero-portrait">
+          <img src="images/rovic.png" alt="Portrait of Rovic Kristian Laniog" />
+        </div>
+      </div>
+    </section>
 
-      <!-- ───────────────────────── Contact ───────────────────────── -->
-      <section id="contact" class="section section-tint">
-        <div class="wrap contact-grid">
-          <div>
-            <p class="eyebrow">Get in Touch</p>
-            <h2 class="contact-title">Let's build<br /><em>something.</em></h2>
-            <p class="contact-desc">
-              Open to new projects, freelance work, and full-time roles. If
-              something here caught your eye, say hello.
-            </p>
-            <ul class="contact-list">
-              <li><span>Email</span><a href="mailto:rolaniog@gmail.com">rolaniog@gmail.com</a></li>
-              <li><span>Phone</span><a href="tel:+639631001435">0963 100 1435</a></li>
-              <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/rovic-kristian-laniog-5b9034373/" target="_blank" rel="noopener">rovic-kristian-laniog</a></li>
-              <li><span>GitHub</span><a href="https://github.com/ferntzy" target="_blank" rel="noopener">ferntzy</a></li>
+    <!-- ───────────────────────── Work ───────────────────────── -->
+    <section id="work" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Selected Work</p>
+          <h2 class="section-title">A few things I've shipped.</h2>
+        </div>
+
+        <ol class="work-list">
+          <li class="work-item reveal">
+            <span class="work-index">01</span>
+            <div class="work-body">
+              <div class="work-heading">
+                <h3>Leyte Baptist Hospital Website</h3>
+                <span class="work-stack">Vite · React · TypeScript · Vercel</span>
+              </div>
+              <p>
+                Designed and built the hospital's live landing page from
+                scratch, from UI to deployment.
+              </p>
+              <div class="work-links">
+                <a href="https://portfolio-beige-mu-vhe42cayoy.vercel.app/" target="_blank" rel="noopener">Portfolio
+                  ↗</a>
+              </div>
+            </div>
+            <img class="work-image" src="images/lbhi.png" alt="Leyte Baptist Hospital website screenshot"
+              loading="lazy" />
+          </li>
+
+          <li class="work-item reveal">
+            <span class="work-index">02</span>
+            <div class="work-body">
+              <div class="work-heading">
+                <h3>PhilHealth ICD-10 Coding Assistant</h3>
+                <span class="work-stack">React · Vercel Serverless · Upstash Redis</span>
+              </div>
+              <p>
+                A coding assistant scoped to the WHO ICD&#8209;10 (2014
+                Edition) for Philippine PhilHealth documentation, deployed
+                serverless with Redis-based usage metering.
+              </p>
+              <div class="work-links">
+                <a href="https://github.com/ferntzy" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+            </div>
+            <img class="work-image" src="images/icd10.png" alt="ICD-10 coding assistant screenshot" loading="lazy" />
+          </li>
+
+          <li class="work-item reveal">
+            <span class="work-index">03</span>
+            <div class="work-body">
+              <div class="work-heading">
+                <h3>Student Event Management Information System</h3>
+                <span class="work-stack">Laravel 11 · Blade · MySQL</span>
+              </div>
+              <p>
+                Capstone project for SLSU's Student Development Services
+                Office &mdash; a full event-management platform with
+                multi-level approval workflows, venue booking, and a
+                real-time calendar for student organizations.
+              </p>
+              <div class="work-links">
+                <a href="https://github.com/ferntzy/SLSU-SDSO-CAPSTONE-SYSTEM" target="_blank" rel="noopener">Source
+                  ↗</a>
+              </div>
+            </div>
+            <img class="work-image" src="images/semis.png" alt="SEMIS dashboard screenshot" loading="lazy" />
+          </li>
+
+          <li class="work-item reveal">
+            <span class="work-index">04</span>
+            <div class="work-body">
+              <div class="work-heading">
+                <h3>SLEM Cooperative Platform</h3>
+                <span class="work-stack">Laravel Filament · React</span>
+              </div>
+              <p>
+                Built with a seven-person team for the Southern Leyte
+                Employees Multi-Purpose Cooperative &mdash; a prototype
+                covering the co-op's member services end to end.
+              </p>
+              <div class="work-links">
+                <a href="https://slemcoop.creativedevlabs.com/" target="_blank" rel="noopener">Live ↗</a>
+              </div>
+            </div>
+            <img class="work-image" src="images/slem.png" alt="SLEM cooperative platform screenshot" loading="lazy" />
+          </li>
+
+          <li class="work-item reveal">
+            <span class="work-index">05</span>
+            <div class="work-body">
+              <div class="work-heading">
+                <h3>GODOT mini game</h3>
+                <span class="work-stack">GODOT</span>
+              </div>
+              <p>
+                Made a practice mini game using GODOT engine. The game is a simple 2D platformer where the player
+                controls a character that can jump and collect coins while avoiding obstacles.
+              </p>
+              <div class="work-links">
+                <a href="https://ferntzy.github.io/calculator/" target="_blank" rel="noopener">Live ↗</a>
+                <a href="https://github.com/ferntzy/calculator" target="_blank" rel="noopener">Source ↗</a>
+              </div>
+            </div>
+            <img class="work-image" src="images/game.png" alt="Confession Calculator screenshot" loading="lazy" />
+          </li>
+        </ol>
+
+        <div class="more-projects">
+          <p class="more-projects-label">Also built</p>
+          <ul class="more-projects-list">
+            <li class="reveal">
+              <span>Cooperative Management Information System</span>
+              <span class="more-projects-stack">PHP · MySQL</span>
+            </li>
+            <li class="reveal">
+              <span>Gym Management System</span>
+              <span class="more-projects-stack">PHP · MySQL</span>
+            </li>
+            <li class="reveal">
+              <span>Cashiering &amp; Inventory Management Systems</span>
+              <span class="more-projects-stack">PHP · MySQL</span>
+            </li>
+            <li class="reveal">
+              <span>ID Maker System</span>
+              <span class="more-projects-stack">PHP · MySQL</span>
+            </li>
+            <li class="reveal">
+              <span>Hospital A/R Reporting Tool</span>
+              <span class="more-projects-stack">Python · xlwings</span>
+            </li>
+          </ul>
+        </div>
+
+        <p class="work-more">
+          More of what I build lives on
+          <a href="https://github.com/ferntzy" target="_blank" rel="noopener">github.com/ferntzy ↗</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── Experience ───────────────────────── -->
+    <section id="experience" class="section section-tint">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Work Experience</p>
+          <h2 class="section-title">Where I've put in the hours.</h2>
+        </div>
+
+        <div class="job-list">
+          <div class="job reveal">
+            <div class="job-meta">
+              <p class="job-role">Admin Support Staff / Web Developer</p>
+              <p class="job-org">Leyte Baptist Hospital</p>
+              <p class="job-date" data-start="2026-07-13">July 2026 - Present  <span class="job-tenure"></span>
+              </p>
+            </div>
+            <ul class="job-bullets">
+              <li>Designed and built the hospital's official landing page with Vite, React, and TypeScript, deployed on
+                Vercel.</li>
+              <li>Built a Python desktop tool converting BizBox FMS XML exports into formatted Excel workbooks for
+                accounts-receivable reporting, with a live auto-updating summary sheet via Excel COM automation
+                (xlwings).</li>
             </ul>
           </div>
 
-          <form id="contactForm" class="contact-form" novalidate>
-            <div class="field">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required autocomplete="name" />
+          <div class="job reveal">
+            <div class="job-meta">
+              <p class="job-role">Freelance / Independent Developer</p>
+              <p class="job-org">Personal &amp; Small Business Clients</p>
+              <p class="job-date">2022 &ndash; Present</p>
             </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required autocomplete="email" />
+            <ul class="job-bullets">
+              <li>Built a full ICD&#8209;10 coding assistant scoped to WHO ICD&#8209;10 (2014 Edition) for PhilHealth
+                documentation, with Upstash Redis usage metering.</li>
+              <li>Conceptualized and pitched ScriptIQ, an AI-powered handwritten prescription recognition system for
+                Philippine hospitals — full pitch deck and business model.</li>
+            </ul>
+          </div>
+
+          <div class="job reveal">
+            <div class="job-meta">
+              <p class="job-role">Developer Intern (On-the-Job Training)</p>
+              <p class="job-org">CreativeDevLabs</p>
+              <p class="job-date">600 Hours</p>
             </div>
-            <div class="field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit" id="submitBtn" class="btn-primary btn-full">
-              <span id="btnText">Send message</span>
-              <span id="btnSpinner" hidden>Sending…</span>
-            </button>
-            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
-          </form>
+            <ul class="job-bullets">
+              <li>Assisted in developing a Cooperative Management Information System (CMIS) used for cooperative
+                operations management.</li>
+              <li>Built an ID Maker System for institutional use, including automated ID generation and printing.</li>
+              <li>Participated in full-cycle system development and quality testing alongside senior developers.</li>
+              <li>Contributed to UI improvements and database CRUD work across multiple internal systems.</li>
+            </ul>
+          </div>
         </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="wrap footer-inner">
-        <p>&copy; 2024 Rovic Kristian C. Laniog.</p>
-        <p>Southern Leyte, Philippines</p>
       </div>
-    </footer>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+    <!-- ───────────────────────── Skills ───────────────────────── -->
+    <section id="skills" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Toolkit</p>
+          <h2 class="section-title">What I work with.</h2>
+        </div>
+
+        <dl class="skills-table">
+          <div class="skills-row reveal">
+            <dt>Languages</dt>
+            <dd>JavaScript, TypeScript, PHP, Python, HTML5, CSS3, C#</dd>
+          </div>
+          <div class="skills-row reveal">
+            <dt>Frontend</dt>
+            <dd>React, Tailwind CSS, Vite, Framer Motion, Blade, responsive/UI-UX design</dd>
+          </div>
+          <div class="skills-row reveal">
+            <dt>Backend &amp; Frameworks</dt>
+            <dd>Laravel 11/12, Laravel Filament, FastAPI, REST APIs, Node.js</dd>
+          </div>
+          <div class="skills-row reveal">
+            <dt>Database</dt>
+            <dd>MySQL, Supabase, database design, CRUD operations</dd>
+          </div>
+          <div class="skills-row reveal">
+            <dt>Cloud &amp; DevOps</dt>
+            <dd>Vercel, cPanel, GoDaddy, Git &amp; GitHub Actions, Linux, Windows administration</dd>
+          </div>
+          <div class="skills-row reveal">
+            <dt>Other Tools</dt>
+            <dd>Godot, Upstash Redis, xlwings/Excel automation</dd>
+          </div>
+          <div class="skills-row reveal">
+            <dt>Creative</dt>
+            <dd>Adobe Photoshop, Premiere Pro, OBS Studio, Canva</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── Community ───────────────────────── -->
+    <section id="community" class="section section-tint">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Along the Way</p>
+          <h2 class="section-title">Competitions &amp; community work.</h2>
+        </div>
+
+        <div class="exp-columns">
+          <div class="exp-col">
+            <h3 class="exp-col-title">Competitions</h3>
+            <ul class="exp-list">
+              <li class="reveal">
+                <span class="exp-date">2024</span>
+                <div>
+                  <p class="exp-title">1st EVCO Competition</p>
+                  <p class="exp-desc">Competed with Renz and Ryan &mdash; our first taste of competitive
+                    problem-solving.</p>
+                </div>
+              </li>
+              <li class="reveal">
+                <span class="exp-date">2024</span>
+                <div>
+                  <p class="exp-title">2nd HackforGov, Region 8</p>
+                  <p class="exp-desc">Pitched a civic-tech solution with Gerald, Shrine, and Renz. Didn't win, but
+                    learned a lot.</p>
+                </div>
+              </li>
+              <li class="reveal">
+                <span class="exp-date">2024</span>
+                <div>
+                  <p class="exp-title">CodeChum National Programming Challenge</p>
+                  <p class="exp-desc">Reached round two nationally in Java with Gerald, Renz, and Ryan.</p>
+                </div>
+              </li>
+              <li class="reveal">
+                <span class="exp-date">Oct 2024</span>
+                <div>
+                  <p class="exp-title">2nd Eastern Visayas Coding Olympics</p>
+                  <p class="exp-desc">
+                    Placed 2nd at Western Leyte College with Gerald, Harold, Jester, and Derick.
+                    <a href="https://www.facebook.com/share/1CXEhmie5q/" target="_blank" rel="noopener">Post ↗</a>
+                  </p>
+                </div>
+              </li>
+              <li class="reveal">
+                <span class="exp-date">2024</span>
+                <div>
+                  <p class="exp-title">3rd HackforGov, Region 8</p>
+                  <p class="exp-desc">Returned with Gerald, Renz, and Ryan and improved on our previous result.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="exp-col">
+            <h3 class="exp-col-title">Content &amp; Events</h3>
+            <ul class="exp-list">
+              <li class="reveal">
+                <span class="exp-date">Jan 2024</span>
+                <div>
+                  <p class="exp-title">Malitbog Esports Community Open — MLBB Tournament</p>
+                  <p class="exp-desc">Organized the tournament and designed all promotional visuals.</p>
+                </div>
+              </li>
+              <li class="reveal">
+                <span class="exp-date">Aug 2025</span>
+                <div>
+                  <p class="exp-title">Malitbog Linggo ng Kabataan — MLBB Tournament</p>
+                  <p class="exp-desc">Designed the visuals and ran the full livestream, opening to closing.</p>
+                </div>
+              </li>
+              <li class="reveal">
+                <span class="exp-date">Sep 2025</span>
+                <div>
+                  <p class="exp-title">SLSU Intramurals 2025 (MLBB)</p>
+                  <p class="exp-desc">Produced tournament graphics and promotional content.</p>
+                </div>
+              </li>
+              <li class="reveal">
+                <span class="exp-date">Oct 2025</span>
+                <div>
+                  <p class="exp-title">SLSU University Games 2025 (MLBB)</p>
+                  <p class="exp-desc">Organized graphics, livestreamed the full tournament, and covered it on social
+                    media.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── Contact ───────────────────────── -->
+    <section id="contact" class="section">
+      <div class="wrap contact-grid">
+        <div>
+          <p class="eyebrow">Get in Touch</p>
+          <h2 class="contact-title">Let's build<br /><em>something.</em></h2>
+          <p class="contact-desc">
+            Open to new projects, freelance work, and full-time roles. If
+            something here caught your eye, say hello.
+          </p>
+          <ul class="contact-list">
+            <li><span>Email</span><a href="mailto:rolaniog@gmail.com">rolaniog@gmail.com</a></li>
+            <li><span>Phone</span><a href="tel:+639631001435">0963 100 1435</a></li>
+            <li><span>Portfolio</span><a href="https://portfolio-beige-mu-vhe42cayoy.vercel.app/" target="_blank"
+                rel="noopener">view ↗</a></li>
+            <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/rovic-kristian-laniog-5b9034373/"
+                target="_blank" rel="noopener">rovic-kristian-laniog</a></li>
+            <li><span>GitHub</span><a href="https://github.com/ferntzy" target="_blank" rel="noopener">ferntzy</a></li>
+          </ul>
+        </div>
+
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" id="submitBtn" class="btn-primary btn-full">
+            <span id="btnText">Send message</span>
+            <span id="btnSpinner" hidden>Sending…</span>
+          </button>
+          <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; 2026 Rovic Kristian C. Laniog.</p>
+      <p>Malitbog, Southern Leyte, Philippines</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>
