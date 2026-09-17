@@ -1,116 +1,144 @@
-/* ── Scroll reveal ── */
-const revealTargets = document.querySelectorAll(
-  ".work-item, .skills-row, .exp-list li, .job, .more-projects-list li"
-);
+"use strict";
 
-const prefersReducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
+document.documentElement.classList.add("has-js");
 
-if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-  revealTargets.forEach((el) => el.classList.add("is-visible"));
-} else {
+const menu = document.querySelector(".menu-toggle");
+const nav = document.getElementById("primary-nav");
+
+function closeMenu() {
+  nav.classList.remove("is-open");
+  menu.setAttribute("aria-expanded", "false");
+}
+
+menu.addEventListener("click", () => {
+  const open = nav.classList.toggle("is-open");
+  menu.setAttribute("aria-expanded", String(open));
+});
+
+nav.addEventListener("click", (event) => {
+  if (event.target.closest("a")) closeMenu();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && nav.classList.contains("is-open")) {
+    closeMenu();
+    menu.focus();
+  }
+});
+
+// Show a clean fallback when an image is missing.
+document.querySelectorAll("img").forEach((img) => {
+  const fallback = () => {
+    img.hidden = true;
+    img.closest(".hero-portrait")?.classList.add("no-image");
+  };
+
+  img.addEventListener("error", fallback);
+
+  if (img.complete && img.naturalWidth === 0) {
+    fallback();
+  }
+});
+
+// Highlight the current section in the navigation.
+if ("IntersectionObserver" in window) {
+  const links = [...nav.querySelectorAll('a[href^="#"]')];
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+
+        links.forEach((link) => {
+          if (link.hash === "#" + entry.target.id) {
+            link.setAttribute("aria-current", "location");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
       });
     },
-    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    {
+      rootMargin: "-15% 0px -60% 0px",
+      threshold: 0,
+    }
   );
 
-  revealTargets.forEach((el) => observer.observe(el));
+  document.querySelectorAll("main section[id]").forEach((section) => {
+    observer.observe(section);
+  });
 }
 
-/* ── Contact form (EmailJS) ── */
-emailjs.init("Ocol9-ye4mrd2ulbR");
-const EMAILJS_SERVICE = "service_3rhlchh";
-const EMAILJS_TEMPLATE = "template_faxhqvv";
-
+// Contact form.
 const form = document.getElementById("contactForm");
 const submitBtn = document.getElementById("submitBtn");
 const btnText = document.getElementById("btnText");
 const btnSpinner = document.getElementById("btnSpinner");
 const formStatus = document.getElementById("formStatus");
 
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+let sending = false;
 
-function validateContactForm(name, email, message) {
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  if (sending) return;
+
+  const name = form.elements.name.value.trim();
+  const email = form.elements.email.value.trim();
+  const message = form.elements.message.value.trim();
+
+  formStatus.dataset.state = "error";
+
+  let invalid = null;
+
   if (!name) {
-    return "Please enter your name.";
+    invalid = ["name", "Please enter your name."];
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    invalid = ["email", "Please enter a valid email address."];
+  } else if (!message) {
+    invalid = ["message", "Please add a short message."];
   }
-  if (!email) {
-    return "Please enter your email.";
-  }
-  if (!EMAIL_PATTERN.test(email)) {
-    return "That email address doesn't look right.";
-  }
-  if (!message) {
-    return "Please add a short message.";
-  }
-  return null;
-}
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
-
-  formStatus.textContent = "";
-  formStatus.removeAttribute("data-state");
-
-  const validationError = validateContactForm(name, email, message);
-  if (validationError) {
-    formStatus.textContent = validationError;
-    formStatus.setAttribute("data-state", "error");
-    Swal.fire({
-      icon: "warning",
-      title: "Missing details",
-      text: validationError,
-      confirmButtonColor: "#7a2e2e",
-    });
+  if (invalid) {
+    formStatus.textContent = invalid[1];
+    form.elements[invalid[0]].focus();
     return;
   }
 
+  if (!window.emailjs) {
+    formStatus.textContent =
+      "The contact service is unavailable. Please email rolaniog@gmail.com directly.";
+    return;
+  }
+
+  sending = true;
   submitBtn.disabled = true;
   btnText.hidden = true;
   btnSpinner.hidden = false;
+  formStatus.textContent = "";
+  form.setAttribute("aria-busy", "true");
 
-  const templateParams = { name, email, message };
+  try {
+    window.emailjs.init("Ocol9-ye4mrd2ulbR");
 
-  emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, templateParams).then(
-    function () {
-      submitBtn.disabled = false;
-      btnText.hidden = false;
-      btnSpinner.hidden = true;
-      form.reset();
-      formStatus.textContent = "Message sent — thanks for reaching out.";
-      formStatus.setAttribute("data-state", "success");
-      Swal.fire({
-        icon: "success",
-        title: "Message sent",
-        text: "Thanks for reaching out — I'll get back to you soon.",
-        confirmButtonColor: "#7a2e2e",
-      });
-    },
-    function (error) {
-      submitBtn.disabled = false;
-      btnText.hidden = false;
-      btnSpinner.hidden = true;
-      console.error("EmailJS error:", error);
-      formStatus.textContent = "Something went wrong — please try again.";
-      formStatus.setAttribute("data-state", "error");
-      Swal.fire({
-        icon: "error",
-        title: "Something went wrong",
-        text: "Your message didn't send — please try again.",
-        confirmButtonColor: "#7a2e2e",
-      });
-    }
-  );
+    await window.emailjs.send(
+      "service_3rhlchh",
+      "template_faxhqvv",
+      { name, email, message }
+    );
+
+    form.reset();
+    formStatus.dataset.state = "success";
+    formStatus.textContent = "Message sent — thanks for reaching out.";
+  } catch {
+    formStatus.dataset.state = "error";
+    formStatus.textContent =
+      "Your message could not be sent. Please try again or email rolaniog@gmail.com.";
+  } finally {
+    sending = false;
+    submitBtn.disabled = false;
+    btnText.hidden = false;
+    btnSpinner.hidden = true;
+    form.removeAttribute("aria-busy");
+  }
 });

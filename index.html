@@ -1,122 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Rovic Kristian Laniog — Full-Stack Developer</title>
-  <meta name="description"
-    content="Rovic Kristian C. Laniog — full-stack developer based in Malitbog, Southern Leyte, Philippines. Production web apps, healthcare tooling, capstone systems, and community esports production." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+  <meta
+    content="Rovic Kristian C. Laniog — full-stack developer in Southern Leyte, Philippines. Selected healthcare and academic software projects, development experience, and creative community work."
+    name="description" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <script>document.documentElement.classList.add('has-js');</script>
+  <link href="styles.css" rel="stylesheet" />
 </head>
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="wordmark" href="#home">Rovic Kristian Laniog</a>
-      <nav class="site-nav" aria-label="Primary">
+      <a class="wordmark" href="#home">Rovic Kristian Laniog</a><button aria-controls="primary-nav"
+        aria-expanded="false" class="menu-toggle" type="button">Menu <span aria-hidden="true">+</span></button>
+      <nav aria-label="Primary" class="site-nav" id="primary-nav">
         <a href="#work">Work</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#community">Community</a>
         <a href="#contact">Contact</a>
-        <a href="https://github.com/ferntzy" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://github.com/ferntzy" rel="noopener" target="_blank">GitHub ↗</a>
       </nav>
     </div>
   </header>
-
   <main id="main">
     <!-- ───────────────────────── Hero ───────────────────────── -->
-    <section id="home" class="hero">
+    <section class="hero" id="home">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Rovic Kristian C. Laniog — Full&#8209;Stack Developer</p>
-          <h1 class="hero-title">
-            I build systems<br />
-            people actually <em>rely on.</em>
-          </h1>
-          <p class="hero-desc">
-            Based in Malitbog, Southern Leyte, Philippines. I've spent the
-            last couple of years taking projects from a blank repository
-            to something a real organization runs on &mdash; a live
-            hospital website, a PhilHealth ICD&#8209;10 coding assistant,
-            a cooperative's member platform, and internal reporting tools
-            built for an active healthcare client. When I'm not writing
-            code, I'm usually behind a camera or a mixing board, running
-            livestreams and designing graphics for community esports
-            events.
-          </p>
+          <p class="eyebrow">PERSONAL PORTFOLIO / FULL-STACK DEVELOPER</p>
+          <h1 class="hero-title">Thoughtful code.<br />Practical <em>solutions.</em></h1>
+          <p class="hero-desc">I’m Rovic, a full-stack developer based in Southern Leyte, Philippines. I build
+            thoughtful web applications and practical tools for healthcare, academic workflows, and everyday business
+            needs.</p>
           <div class="hero-actions">
             <a class="btn-primary" href="#work">View the work <span aria-hidden="true">→</span></a>
             <a class="btn-text" href="#contact">Say hello</a>
           </div>
         </div>
         <div class="hero-portrait">
-          <img src="images/rovic.png" alt="Portrait of Rovic Kristian Laniog" />
+          <img alt="Portrait of Rovic Kristian Laniog" src="images/rovic.png" />
+          <div aria-hidden="true" class="portrait-fallback"><span>DEVELOP / DESIGN /
+              DELIVER</span><strong>Rovic<br />Kristian<span>.</span></strong>
+            <p>Full-stack developer<br />Southern Leyte, Philippines</p>
+          </div>
+          <div class="portrait-caption">Rovic Kristian C. Laniog <span>Developer &amp; creative</span></div>
         </div>
       </div>
     </section>
-
     <!-- ───────────────────────── Work ───────────────────────── -->
-    <section id="work" class="section">
+    <section class="section" id="work">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Selected Work</p>
-          <h2 class="section-title">A few things I've shipped.</h2>
+          <h2 class="section-title">Selected projects.</h2>
         </div>
-
         <ol class="work-list">
-          <li class="work-item reveal">
+          <!-- <li class="work-item reveal">
             <span class="work-index">01</span>
             <div class="work-body">
               <div class="work-heading">
                 <h3>Leyte Baptist Hospital Website</h3>
-                <span class="work-stack">Vite · React · TypeScript · Vercel</span>
+                <span class="work-stack">Laravel · React / TSX · Vercel</span>
               </div>
-              <p>
-                Designed and built the hospital's live landing page from
-                scratch, from UI to deployment.
-              </p>
-              <div class="work-links">
-                <a href="https://portfolio-beige-mu-vhe42cayoy.vercel.app/" target="_blank" rel="noopener">Portfolio
-                  ↗</a>
-              </div>
+              <p>An institutional website for Leyte Baptist Hospital, with information about services, doctors, news,
+                and community activities, brought together in a responsive interface.</p>
             </div>
-            <img class="work-image" src="images/lbhi.png" alt="Leyte Baptist Hospital website screenshot"
-              loading="lazy" />
-          </li>
-
+            <div class="project-media" data-label="Leyte Baptist Hospital Website"><img
+                alt="Leyte Baptist Hospital website screenshot" class="work-image" loading="lazy"
+                src="images/lbhi.png" /></div>
+          </li> -->
           <li class="work-item reveal">
-            <span class="work-index">02</span>
+            <span class="work-index">01</span>
             <div class="work-body">
               <div class="work-heading">
                 <h3>PhilHealth ICD-10 Coding Assistant</h3>
-                <span class="work-stack">React · Vercel Serverless · Upstash Redis</span>
+                <span class="work-stack">Next.js · Vercel Serverless · Upstash Redis</span>
               </div>
               <p>
-                A coding assistant scoped to the WHO ICD&#8209;10 (2014
+                A coding assistant scoped to the WHO ICD‑10 (2014
                 Edition) for Philippine PhilHealth documentation, deployed
                 serverless with Redis-based usage metering.
               </p>
-              <div class="work-links">
-                <a href="https://github.com/ferntzy" target="_blank" rel="noopener">GitHub ↗</a>
-              </div>
             </div>
-            <img class="work-image" src="images/icd10.png" alt="ICD-10 coding assistant screenshot" loading="lazy" />
+            <div class="project-media" data-label="PhilHealth ICD-10 Coding Assistant"><img
+                alt="ICD-10 coding assistant screenshot" class="work-image" loading="lazy" src="images/icd10.png" />
+            </div>
           </li>
-
           <li class="work-item reveal">
-            <span class="work-index">03</span>
+            <span class="work-index">02</span>
             <div class="work-body">
               <div class="work-heading">
                 <h3>Student Event Management Information System</h3>
@@ -124,179 +105,118 @@
               </div>
               <p>
                 Capstone project for SLSU's Student Development Services
-                Office &mdash; a full event-management platform with
+                Office — a full event-management platform with
                 multi-level approval workflows, venue booking, and a
                 real-time calendar for student organizations.
               </p>
               <div class="work-links">
-                <a href="https://github.com/ferntzy/SLSU-SDSO-CAPSTONE-SYSTEM" target="_blank" rel="noopener">Source
+                <a href="https://github.com/ferntzy/SLSU-SDSO-CAPSTONE-SYSTEM" rel="noopener" target="_blank">Source
                   ↗</a>
               </div>
             </div>
-            <img class="work-image" src="images/semis.png" alt="SEMIS dashboard screenshot" loading="lazy" />
+            <div class="project-media" data-label="Student Event Management Information System"><img
+                alt="SEMIS dashboard screenshot" class="work-image" loading="lazy" src="images/semis.png" /></div>
           </li>
-
+          <li class="work-item"><span class="work-index">03</span>
+            <div class="work-body">
+              <div class="work-heading">
+                <h3>eReseta</h3><span class="work-stack">Python · Prescription management</span>
+              </div>
+              <p>A locally used prescription application supporting patient and medicine records, prescription entry,
+                and printable output for healthcare workflows.</p>
+            </div>
+            <div class="project-note"><span>HEALTHCARE SOFTWARE</span><strong>eReseta</strong>
+              <p>Prescription management</p>
+            </div>
+          </li>
           <li class="work-item reveal">
             <span class="work-index">04</span>
             <div class="work-body">
               <div class="work-heading">
-                <h3>SLEM Cooperative Platform</h3>
-                <span class="work-stack">Laravel Filament · React</span>
+                <h3>SLEM Coop Website</h3>
+                <span class="work-stack">CreativeDevLabs · Team contribution</span>
               </div>
-              <p>
-                Built with a seven-person team for the Southern Leyte
-                Employees Multi-Purpose Cooperative &mdash; a prototype
-                covering the co-op's member services end to end.
-              </p>
-              <div class="work-links">
-                <a href="https://slemcoop.creativedevlabs.com/" target="_blank" rel="noopener">Live ↗</a>
-              </div>
+              <p>Contributed to the cooperative website during my 600-hour internship at CreativeDevLabs, working within
+                a development team on an ongoing client project.</p>
             </div>
-            <img class="work-image" src="images/slem.png" alt="SLEM cooperative platform screenshot" loading="lazy" />
-          </li>
-
-          <li class="work-item reveal">
-            <span class="work-index">05</span>
-            <div class="work-body">
-              <div class="work-heading">
-                <h3>GODOT mini game</h3>
-                <span class="work-stack">GODOT</span>
-              </div>
-              <p>
-                Made a practice mini game using GODOT engine. The game is a simple 2D platformer where the player
-                controls a character that can jump and collect coins while avoiding obstacles.
-              </p>
-              <div class="work-links">
-                <a href="https://ferntzy.github.io/calculator/" target="_blank" rel="noopener">Live ↗</a>
-                <a href="https://github.com/ferntzy/calculator" target="_blank" rel="noopener">Source ↗</a>
-              </div>
-            </div>
-            <img class="work-image" src="images/game.png" alt="Confession Calculator screenshot" loading="lazy" />
+            <div class="project-media" data-label="SLEM Coop Website"><img alt="SLEM cooperative platform screenshot"
+                class="work-image" loading="lazy" src="images/slem.png" /></div>
           </li>
         </ol>
-
-        <div class="more-projects">
-          <p class="more-projects-label">Also built</p>
-          <ul class="more-projects-list">
-            <li class="reveal">
-              <span>Cooperative Management Information System</span>
-              <span class="more-projects-stack">PHP · MySQL</span>
-            </li>
-            <li class="reveal">
-              <span>Gym Management System</span>
-              <span class="more-projects-stack">PHP · MySQL</span>
-            </li>
-            <li class="reveal">
-              <span>Cashiering &amp; Inventory Management Systems</span>
-              <span class="more-projects-stack">PHP · MySQL</span>
-            </li>
-            <li class="reveal">
-              <span>ID Maker System</span>
-              <span class="more-projects-stack">PHP · MySQL</span>
-            </li>
-            <li class="reveal">
-              <span>Hospital A/R Reporting Tool</span>
-              <span class="more-projects-stack">Python · xlwings</span>
-            </li>
-          </ul>
-        </div>
-
         <p class="work-more">
           More of what I build lives on
-          <a href="https://github.com/ferntzy" target="_blank" rel="noopener">github.com/ferntzy ↗</a>
+          <a href="https://github.com/ferntzy" rel="noopener" target="_blank">github.com/ferntzy ↗</a>
         </p>
       </div>
     </section>
-
     <!-- ───────────────────────── Experience ───────────────────────── -->
-    <section id="experience" class="section section-tint">
+    <section class="section section-tint" id="experience">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Work Experience</p>
-          <h2 class="section-title">Where I've put in the hours.</h2>
+          <h2 class="section-title">Experience with purpose.</h2>
         </div>
-
         <div class="job-list">
           <div class="job reveal">
             <div class="job-meta">
-              <p class="job-role">Admin Support Staff / Web Developer</p>
+              <p class="job-role">Administrative Support Staff</p>
               <p class="job-org">Leyte Baptist Hospital</p>
-              <p class="job-date" data-start="2026-07-13">July 2026 - Present  <span class="job-tenure"></span>
-              </p>
+              <p class="job-date" data-start="2026-07-13">July 2026 – Present</p>
             </div>
             <ul class="job-bullets">
-              <li>Designed and built the hospital's official landing page with Vite, React, and TypeScript, deployed on
-                Vercel.</li>
-              <li>Built a Python desktop tool converting BizBox FMS XML exports into formatted Excel workbooks for
-                accounts-receivable reporting, with a live auto-updating summary sheet via Excel COM automation
-                (xlwings).</li>
+              <li>Support hospital digital workflows, including PhilHealth claims transmission, documentation, data
+                entry, and records handling.</li>
+              <li>Work with hospital information systems and maintain accuracy in confidentiality-sensitive
+                administrative tasks.</li>
             </ul>
           </div>
-
-          <div class="job reveal">
-            <div class="job-meta">
-              <p class="job-role">Freelance / Independent Developer</p>
-              <p class="job-org">Personal &amp; Small Business Clients</p>
-              <p class="job-date">2022 &ndash; Present</p>
-            </div>
-            <ul class="job-bullets">
-              <li>Built a full ICD&#8209;10 coding assistant scoped to WHO ICD&#8209;10 (2014 Edition) for PhilHealth
-                documentation, with Upstash Redis usage metering.</li>
-              <li>Conceptualized and pitched ScriptIQ, an AI-powered handwritten prescription recognition system for
-                Philippine hospitals — full pitch deck and business model.</li>
-            </ul>
-          </div>
-
           <div class="job reveal">
             <div class="job-meta">
               <p class="job-role">Developer Intern (On-the-Job Training)</p>
               <p class="job-org">CreativeDevLabs</p>
-              <p class="job-date">600 Hours</p>
+              <p class="job-date">2026 · 600 hours</p>
             </div>
             <ul class="job-bullets">
-              <li>Assisted in developing a Cooperative Management Information System (CMIS) used for cooperative
-                operations management.</li>
-              <li>Built an ID Maker System for institutional use, including automated ID generation and printing.</li>
-              <li>Participated in full-cycle system development and quality testing alongside senior developers.</li>
-              <li>Contributed to UI improvements and database CRUD work across multiple internal systems.</li>
+              <li>Contributed to the SLEM Coop website, an ID maker tool, and other ongoing client projects as part of a
+                development team.</li>
+              <li>Worked on frontend design, API development, deployment, WordPress, and SEO.</li>
+              <li>Applied database and version-control concepts in practical team-based development.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
-
     <!-- ───────────────────────── Skills ───────────────────────── -->
-    <section id="skills" class="section">
+    <section class="section" id="skills">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Toolkit</p>
           <h2 class="section-title">What I work with.</h2>
         </div>
-
         <dl class="skills-table">
           <div class="skills-row reveal">
             <dt>Languages</dt>
-            <dd>JavaScript, TypeScript, PHP, Python, HTML5, CSS3, C#</dd>
+            <dd>JavaScript, TypeScript, PHP, Python, HTML5, CSS3</dd>
           </div>
           <div class="skills-row reveal">
             <dt>Frontend</dt>
-            <dd>React, Tailwind CSS, Vite, Framer Motion, Blade, responsive/UI-UX design</dd>
+            <dd>React, Next.js, Blade, responsive web design, UI/UX</dd>
           </div>
           <div class="skills-row reveal">
             <dt>Backend &amp; Frameworks</dt>
-            <dd>Laravel 11/12, Laravel Filament, FastAPI, REST APIs, Node.js</dd>
+            <dd>Laravel, Filament, REST APIs, role-based access control</dd>
           </div>
           <div class="skills-row reveal">
             <dt>Database</dt>
-            <dd>MySQL, Supabase, database design, CRUD operations</dd>
+            <dd>MySQL, PostgreSQL, Supabase, relational data modeling</dd>
           </div>
           <div class="skills-row reveal">
             <dt>Cloud &amp; DevOps</dt>
-            <dd>Vercel, cPanel, GoDaddy, Git &amp; GitHub Actions, Linux, Windows administration</dd>
+            <dd>Vercel, Cloudflare, cPanel, Git, GitHub</dd>
           </div>
           <div class="skills-row reveal">
             <dt>Other Tools</dt>
-            <dd>Godot, Upstash Redis, xlwings/Excel automation</dd>
+            <dd>Postman, WordPress, Elementor, Laravel Herd</dd>
           </div>
           <div class="skills-row reveal">
             <dt>Creative</dt>
@@ -305,62 +225,54 @@
         </dl>
       </div>
     </section>
-
     <!-- ───────────────────────── Community ───────────────────────── -->
-    <section id="community" class="section section-tint">
+    <section class="section section-tint" id="community">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Along the Way</p>
           <h2 class="section-title">Competitions &amp; community work.</h2>
         </div>
-
         <div class="exp-columns">
           <div class="exp-col">
             <h3 class="exp-col-title">Competitions</h3>
             <ul class="exp-list">
               <li class="reveal">
-                <span class="exp-date">2024</span>
+                <span class="exp-date">Participant</span>
                 <div>
                   <p class="exp-title">1st EVCO Competition</p>
-                  <p class="exp-desc">Competed with Renz and Ryan &mdash; our first taste of competitive
-                    problem-solving.</p>
+                  <p class="exp-desc">Participant in the problem-solving and coding competition.</p>
                 </div>
               </li>
               <li class="reveal">
-                <span class="exp-date">2024</span>
+                <span class="exp-date">Participant</span>
                 <div>
                   <p class="exp-title">2nd HackforGov, Region 8</p>
-                  <p class="exp-desc">Pitched a civic-tech solution with Gerald, Shrine, and Renz. Didn't win, but
-                    learned a lot.</p>
+                  <p class="exp-desc">Participant in the Region 8 competition.</p>
                 </div>
               </li>
               <li class="reveal">
                 <span class="exp-date">2024</span>
                 <div>
                   <p class="exp-title">CodeChum National Programming Challenge</p>
-                  <p class="exp-desc">Reached round two nationally in Java with Gerald, Renz, and Ryan.</p>
+                  <p class="exp-desc">Round 2 finalist in the national Java programming challenge.</p>
                 </div>
               </li>
               <li class="reveal">
                 <span class="exp-date">Oct 2024</span>
                 <div>
                   <p class="exp-title">2nd Eastern Visayas Coding Olympics</p>
-                  <p class="exp-desc">
-                    Placed 2nd at Western Leyte College with Gerald, Harold, Jester, and Derick.
-                    <a href="https://www.facebook.com/share/1CXEhmie5q/" target="_blank" rel="noopener">Post ↗</a>
-                  </p>
+                  <p class="exp-desc">2nd place in the Java team competition at Western Leyte College.</p>
                 </div>
               </li>
               <li class="reveal">
-                <span class="exp-date">2024</span>
+                <span class="exp-date">Participant</span>
                 <div>
                   <p class="exp-title">3rd HackforGov, Region 8</p>
-                  <p class="exp-desc">Returned with Gerald, Renz, and Ryan and improved on our previous result.</p>
+                  <p class="exp-desc">Participant in the Region 8 competition.</p>
                 </div>
               </li>
             </ul>
           </div>
-
           <div class="exp-col">
             <h3 class="exp-col-title">Content &amp; Events</h3>
             <ul class="exp-list">
@@ -398,9 +310,8 @@
         </div>
       </div>
     </section>
-
     <!-- ───────────────────────── Contact ───────────────────────── -->
-    <section id="contact" class="section">
+    <section class="section" id="contact">
       <div class="wrap contact-grid">
         <div>
           <p class="eyebrow">Get in Touch</p>
@@ -412,46 +323,42 @@
           <ul class="contact-list">
             <li><span>Email</span><a href="mailto:rolaniog@gmail.com">rolaniog@gmail.com</a></li>
             <li><span>Phone</span><a href="tel:+639631001435">0963 100 1435</a></li>
-            <li><span>Portfolio</span><a href="https://portfolio-beige-mu-vhe42cayoy.vercel.app/" target="_blank"
-                rel="noopener">view ↗</a></li>
             <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/rovic-kristian-laniog-5b9034373/"
-                target="_blank" rel="noopener">rovic-kristian-laniog</a></li>
-            <li><span>GitHub</span><a href="https://github.com/ferntzy" target="_blank" rel="noopener">ferntzy</a></li>
+                rel="noopener" target="_blank">rovic-kristian-laniog</a></li>
+            <li><span>GitHub</span><a href="https://github.com/ferntzy" rel="noopener" target="_blank">ferntzy</a></li>
           </ul>
         </div>
-
-        <form id="contactForm" class="contact-form" novalidate>
+        <form class="contact-form" id="contactForm" novalidate="">
+          <h3>Have something in mind?</h3>
+          <p class="form-intro">Tell me a little about it.</p>
           <div class="field">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" required autocomplete="name" />
+            <input autocomplete="name" id="name" name="name" required="" type="text" />
           </div>
           <div class="field">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required autocomplete="email" />
+            <input autocomplete="email" id="email" name="email" required="" type="email" />
           </div>
           <div class="field">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+            <textarea id="message" name="message" required="" rows="4"></textarea>
           </div>
-          <button type="submit" id="submitBtn" class="btn-primary btn-full">
+          <button class="btn-primary btn-full" id="submitBtn" type="submit">
             <span id="btnText">Send message</span>
-            <span id="btnSpinner" hidden>Sending…</span>
+            <span hidden="" id="btnSpinner">Sending…</span>
           </button>
-          <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+          <p aria-live="polite" class="form-status" id="formStatus" role="status"></p>
         </form>
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <p>&copy; 2026 Rovic Kristian C. Laniog.</p>
+      <p>© 2026 Rovic Kristian C. Laniog.</p>
       <p>Malitbog, Southern Leyte, Philippines</p>
     </div>
   </footer>
-
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="script.js"></script>
 </body>
 
